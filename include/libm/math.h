@@ -1,7 +1,7 @@
 #ifndef _MATH_H
 #define _MATH_H
 
-// 
+//
 float       acosf(float x);
 double      acos(double x);
 long double acosl(long double x);
@@ -16,7 +16,7 @@ float       asinf(float x);
 double      asin(double x);
 long double asinl(long double x);
 
-// 
+//
 float       asinhf(float x);
 double      asinh(double x);
 long double asinhl(long double x);
@@ -41,7 +41,7 @@ float       cbrtf(float x);
 double      cbrt(double x);
 long double cbrtl(long double x);
 
-// 
+//
 float       ceilf(float x);
 double      ceil(double x);
 long double ceil(long double x);
@@ -56,7 +56,7 @@ float       cosf(float x);
 double      cos(double x);
 long double cosl(long double x);
 
-// 
+//
 float       erff(float x);
 double      erf(double x);
 long double erfl(long double x);
@@ -66,7 +66,7 @@ float       erfcf(float x);
 double      erfc(double x);
 long double erfcl(long double x);
 
-// 
+//
 float       expf(float x);
 double      exp(double x);
 long double expl(long double x);
@@ -131,7 +131,7 @@ float       ldexpf(float x, int exp);
 double      ldexp(double x, int exp);
 long double ldexpl(long double x, int exp);
 
-// 
+//
 float       lgammaf(float x);
 double      lgamma(double x);
 long double lgammal(long double x);
