@@ -1,5 +1,5 @@
-#ifndef __LIBC_STDLIB_H__
-#define __LIBC_STDLIB_H__
+#ifndef __STDLIB_H__
+#define __STDLIB_H__
 
 typedef unsigned long size_t;
 
@@ -38,4 +38,4 @@ void  qsort(void *base, size_t nitems, size_t size,
 int  abs(int n);
 long labs(long n);
 
-#endif // __LIBC_STDLIB_H__
+#endif // __STDLIB_H__

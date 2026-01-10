@@ -1,5 +1,5 @@
-#ifndef __LIBC_STDLIB_H__
-#define __LIBC_STDLIB_H__
+#ifndef __STDLIB_H__
+#define __STDLIB_H__
 
 //  file end or error number
 #undef  EOF
@@ -59,4 +59,4 @@ void perror(const char *s);
 int  feof(FILE *stream);
 int  ferror(FILE *stream);
 
-#endif // __LIBC_STDLIB_H__
+#endif // __STDLIB_H__

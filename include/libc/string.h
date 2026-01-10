@@ -1,5 +1,5 @@
-#ifndef __LIBC_STRING_H__
-#define __LIBC_STRING_H__
+#ifndef __STRING_H__
+#define __STRING_H__
 
 void  *memcpy(void *s1, const void *s2, size_t n);
 void  *mempcpy(void *s1, const void *s2, size_t n);
@@ -44,4 +44,4 @@ char  *strdup(const char *s);
 char  *strndup(const char *s, size_t n);
 char  *strerror(int errnum);
 
-#endif // __LIBC_STRING_H__
+#endif // __STRING_H__
