@@ -1,0 +1,828 @@
+/*********************************************************************
+*                   (c) SEGGER Microcontroller GmbH                  *
+*                        The Embedded Experts                        *
+*                           www.segger.com                           *
+**********************************************************************
+
+-------------------------- END-OF-HEADER -----------------------------
+*/
+
+#ifndef __SEGGER_RTL_ASMDEFS_RV__
+#define __SEGGER_RTL_ASMDEFS_RV__
+
+#define __SEGGER_RTL_EXCLUDE_STATIC_FUNCTIONS
+
+#include "__SEGGER_RTL_ConfDefaults.h"
+
+#define STACK_ALIGN(X) (((X) + __SEGGER_RTL_STACK_ALIGN - 1) & (-__SEGGER_RTL_STACK_ALIGN))
+
+.macro GLOBAL_RODATA name, align
+#if __SEGGER_RTL_RODATA_IS_RW
+       .section .data.libc.\name, "a", %progbits
+#else
+       .section .rodata.libc.\name, "a", %progbits
+#endif
+       .balign \align
+       .global \name
+\name:
+.endm
+
+.macro LOCAL_RODATA name, align
+#if __SEGGER_RTL_RODATA_IS_RW
+       .section .data.libc.\name, "a", %progbits
+#else
+       .section .rodata.libc.\name, "a", %progbits
+#endif
+       .balign \align
+\name:
+.endm
+
+.macro END_RODATA name
+       .size \name, .-\name
+.endm
+
+.macro GLOBAL_LABEL name
+  .global \name
+  .type \name,@function
+\name:
+.endm
+
+.macro ALIAS_LABEL name
+  .global \name  
+\name:
+  .type \name,@function
+.endm
+
+.macro START_PROC
+  .cfi_sections .debug_frame
+  .cfi_startproc
+.endm
+
+.macro END_PROC
+  .cfi_endproc
+.endm
+
+.macro SET_SIZE name
+  .size \name,.-\name
+.endm
+
+.macro GLOBAL_FUNC name
+  .section .text.libc.\name, "ax", %progbits
+#if __riscv_compressed
+  .align 1
+#else
+  .align 2
+#endif
+  .global \name
+\name:
+  .type \name,@function
+  START_PROC
+.endm
+
+.macro END_FUNC name
+  SET_SIZE \name
+  END_PROC
+.endm
+
+#if __riscv_xlen == 64
+.macro SF reg, off
+  sd \reg, 2*\off(sp)
+.endm
+.macro LF reg, off
+  ld \reg, 2*\off(sp)
+.endm
+#else
+.macro SF reg, off
+  sw \reg, \off(sp)
+.endm
+.macro LF reg, off
+  lw \reg, \off(sp)
+.endm
+#endif
+
+#if __SEGGER_RTL_CORE_HAS_ISA_ANDES_V5
+//
+// This is disabled as BFOZ is available as an instruction
+//
+//.macro BFOZ dst, src, msb, lsb
+//  bfoz \dst, \src, \msb, \lsb
+//.endm
+#else
+#if __riscv_xlen == 64
+.macro BFOZ dst, src, msb, lsb
+        sll     \dst, \src, 63-(\msb)
+        srl     \dst, \dst, (\lsb) + 63 - (\msb)
+.endm
+#else
+.macro BFOZ dst, src, msb, lsb
+        sll     \dst, \src, 31-(\msb)
+        srl     \dst, \dst, (\lsb) + 31 - (\msb)
+.endm
+#endif
+#endif
+
+#if __SEGGER_RTL_CORE_HAS_CLZ32
+.macro CLZ dst, src
+  clz32 \dst, \src
+.endm
+#endif
+
+#if __SEGGER_RTL_CORE_HAS_BSET_BCLR_BINV_BEXT
+.macro ANDNx dst, src, clr
+        bclr    \dst, \src, \clr
+.endm
+#else
+.macro ANDNx dst, src, clr
+        not     \clr, \clr
+        and     \dst, \src, \clr
+.endm
+#endif
+
+#if __SEGGER_RTL_CORE_HAS_SHxADD
+.macro LEAH dst, arr, idx
+  sh1add \dst, \idx, \arr   // notice order
+.endm
+#elif __SEGGER_RTL_CORE_HAS_ISA_ANDES_V5
+.macro LEAH dst, arr, idx
+  lea.h \dst, \arr, \idx    // notice order
+.endm
+#else
+.macro LEAH dst, arr, idx
+  .ifc \dst,\idx
+    .ifc \dst,\arr
+      .error "cannot have \arr = \dst = \idx in emulated leah"
+    .endif
+    add \dst, \dst, \dst
+    add \dst, \dst, \arr
+  .else
+    add \dst, \arr, \idx
+    add \dst, \dst, \idx
+  .endif
+.endm
+#endif
+
+#if __riscv_xlen == 64
+
+.macro NORM32 dst, cnt, tmp
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        CLZ     \tmp, \dst
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        sll     \dst, \dst, 32
+        //
+        srl     \tmp, \dst, 64-16
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 4
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+#else
+        sll     \dst, \dst, 32
+
+        srl     \tmp, \dst, 48
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, -16
+1:
+        srl     \tmp, \dst, 56
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, -8
+2:
+        srl     \tmp, \dst, 60
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, -4
+3:
+        srl     \tmp, \dst, 62
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, -2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+5:
+#endif
+.endm
+
+#else
+
+.macro NORM32 dst, cnt, tmp
+
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        CLZ     \cnt, \dst
+        sll     \dst, \dst, \cnt
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        li      \cnt, 0
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, 1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        srl     \cnt, \dst, 32-16
+        seqz    \cnt, \cnt
+        sll     \cnt, \cnt, 4
+        sll     \dst, \dst, \cnt
+        //
+        srl     \tmp, \dst, 32-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 32-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 32-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+#else
+        li      \cnt, 0
+        srl     \tmp, \dst, 16
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, 16
+1:
+        srl     \tmp, \dst, 24
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, 8
+2:
+        srl     \tmp, \dst, 28
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, 4
+3:
+        srl     \tmp, \dst, 30
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, 2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, 1
+5:
+#endif
+.endm
+
+#endif
+
+#if __riscv_xlen == 64
+
+.macro NORM64 dst, cnt, tmp
+
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        CLZ     \cnt, \dst
+        sll     \dst, \dst, \cnt
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        li      \cnt, 0
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, 1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        li      \cnt, 0
+        srl     \tmp, \dst, 64-32
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 5
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-16
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 4
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        add     \cnt, \cnt, \tmp
+#else
+        li      \cnt, 0
+        srl     \tmp, \dst, 32
+        bnez    \tmp, 0f
+        sll     \dst, \dst, 32
+        addi    \cnt, \cnt, 32
+0:
+        srl     \tmp, \dst, 48
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, 16
+1:
+        srl     \tmp, \dst, 56
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, 8
+2:
+        srl     \tmp, \dst, 60
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, 4
+3:
+        srl     \tmp, \dst, 62
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, 2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, 1
+5:
+#endif
+.endm
+
+#endif
+
+#if __riscv_xlen == 64
+
+.macro NORM32D dst, cnt, tmp
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        sll     \dst, \dst, 32
+        CLZ     \tmp, \dst
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        sll     \dst, \dst, 32
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        sll     \dst, \dst, 32
+        //
+        srl     \tmp, \dst, 64-16
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 4
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#else
+        sll     \dst, \dst, 32
+
+        srl     \tmp, \dst, 48
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, -16
+1:
+        srl     \tmp, \dst, 56
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, -8
+2:
+        srl     \tmp, \dst, 60
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, -4
+3:
+        srl     \tmp, \dst, 62
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, -2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+5:
+#endif
+.endm
+
+#else
+
+.macro NORM32D dst, cnt, tmp
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        CLZ     \tmp, \dst
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        srl     \tmp, \dst, 32-16
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 4
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 32-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 32-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 32-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#else
+        srl     \tmp, \dst, 16
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, -16
+1:
+        srl     \tmp, \dst, 24
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, -8
+2:
+        srl     \tmp, \dst, 28
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, -4
+3:
+        srl     \tmp, \dst, 30
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, -2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+5:
+#endif
+.endm
+
+#endif
+
+#if __riscv_xlen == 64
+
+.macro NORM64D dst, cnt, tmp
+#if __SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32
+        CLZ     \tmp, \dst
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#elif __SEGGER_RTL_OPTIMIZE < 0
+        bltz    \dst, 1f
+0:
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+        bgez    \dst, 0b
+1:
+#elif __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+        srl     \tmp, \dst, 64-32
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 5
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-16
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 4
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-8
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 3
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-4
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 2
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        srl     \tmp, \dst, 64-2
+        seqz    \tmp, \tmp
+        sll     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+        //
+        sltz    \tmp, \dst
+        xor     \tmp, \tmp, 1
+        sll     \dst, \dst, \tmp
+        sub     \cnt, \cnt, \tmp
+#else
+        srl     \tmp, \dst, 32
+        bnez    \tmp, 0f
+        sll     \dst, \dst, 32
+        addi    \cnt, \cnt, -32
+0:
+        srl     \tmp, \dst, 48
+        bnez    \tmp, 1f
+        sll     \dst, \dst, 16
+        addi    \cnt, \cnt, -16
+1:
+        srl     \tmp, \dst, 56
+        bnez    \tmp, 2f
+        sll     \dst, \dst, 8
+        addi    \cnt, \cnt, -8
+2:
+        srl     \tmp, \dst, 60
+        bnez    \tmp, 3f
+        sll     \dst, \dst, 4
+        addi    \cnt, \cnt, -4
+3:
+        srl     \tmp, \dst, 62
+        bnez    \tmp, 4f
+        sll     \dst, \dst, 2
+        addi    \cnt, \cnt, -2
+4:
+        bltz    \dst, 5f
+        sll     \dst, \dst, 1
+        addi    \cnt, \cnt, -1
+5:
+#endif
+.endm
+
+#else
+
+.macro NORM64D rhi, rlo, cnt, tpa, tpb, ini, pos
+
+// In this macro we require the contents of register \rhi to be nonzero
+// when expanded -- hence, only normalization of the high-order word
+// is required.
+//
+// The argument \pos is "pos" when it is knows that register \rhi
+// has a leading zero bit, i.e. it is known the normalization count
+// cannot be zero, in which case the code doesn't need to protect
+// against a zero shift count.
+
+#if (__SEGGER_RTL_CORE_HAS_CLZ || __SEGGER_RTL_CORE_HAS_CLZ32)
+
+// Normalization.
+.ifc \ini,
+  .ifc \pos,pos
+        CLZ     \tpb, \rhi
+        sub     \cnt, \cnt, \tpb
+        not     \tpa, \tpb
+        sll     \rhi, \rhi, \tpb
+        srl     \tpa, \rlo, \tpa
+        srl     \tpa, \tpa, 1
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+  .else
+        CLZ     \tpb, \rhi
+        sub     \cnt, \cnt, \tpb
+        neg     \tpa, \tpb
+        sll     \rhi, \rhi, \tpb
+        srl     \tpa, \rlo, \tpa
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+  .endif
+.else
+  .ifc \pos,pos
+        CLZ     \tpb, \rhi
+        neg     \cnt, \tpb
+        sll     \rhi, \rhi, \tpb
+        srl     \tpa, \rlo, \cnt
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+        add     \cnt, \cnt, \ini
+  .else
+        CLZ     \tpb, \rhi
+        not     \cnt, \tpb
+        sll     \rhi, \rhi, \tpb
+        srl     \tpa, \rlo, \cnt
+        srl     \tpa, \tpa, 1
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+        add     \cnt, \cnt, (\ini)+1    // +1 to compensate for the 'not' rather than 'neg'
+  .endif
+.endif
+
+#elif __SEGGER_RTL_OPTIMIZE < 0
+
+// Normalization.
+.ifnc \ini,
+        li      \cnt, \ini
+.endif
+.ifnc \pos,pos
+        bltz    \rhi, 1f
+.endif
+
+// Iteratively normalize; anything faster turns out rather ugly.
+0:
+        add     \cnt, \cnt, -1
+#if __SEGGER_RTL_CORE_HAS_ISA_SIMD
+        add64   \rlo, \rlo, \rlo
+#else
+        sltz    \tpa, \rlo
+        add     \rlo, \rlo, \rlo
+        LEAH    \rhi, \tpa, \rhi
+#endif
+        bgez    \rhi, 0b
+
+1:
+        
+#else
+
+#if __SEGGER_RTL_PREFER_BRANCH_FREE_CODE
+
+// Normalization.
+        li      \tpb, 0
+        srl     \tpa, \rhi, 32-16
+        seqz    \tpa, \tpa
+        sll     \tpa, \tpa, 4
+        add     \tpb, \tpb, \tpa
+        sll     \rhi, \rhi, \tpa
+
+// Next normalization, we know we have at least 8 bits to shift.
+        srl     \tpa, \rhi, 32-8
+        seqz    \tpa, \tpa
+        sll     \tpa, \tpa, 3
+        add     \tpb, \tpb, \tpa
+        sll     \rhi, \rhi, \tpa
+
+// Next normalization, we know we have at least 4 bits to shift.
+        srl     \tpa, \rhi, 32-4
+        seqz    \tpa, \tpa
+        sll     \tpa, \tpa, 2
+        add     \tpb, \tpb, \tpa
+        sll     \rhi, \rhi, \tpa
+
+// Next normalization, we know we have at least 4 bits to shift.
+        srl     \tpa, \rhi, 32-2
+        seqz    \tpa, \tpa
+        sll     \tpa, \tpa, 1
+        add     \tpb, \tpb, \tpa
+        sll     \rhi, \rhi, \tpa
+
+// Next normalization, we know we have at least 4 bits to shift.
+        slt     \tpa, zero, \rhi            // \rlo is never zero
+        add     \tpb, \tpb, \tpa
+        sll     \rhi, \rhi, \tpa
+
+#else
+
+// Normalization.
+        li      \tpb, 0
+        srl     \tpa, \rhi, 32-16
+        bnez    \tpa, 8f
+        add     \tpb, \tpb, 16
+        sll     \rhi, \rhi, 16
+
+// Next normalization, we know we have at least 8 bits to shift.
+8:
+        srl     \tpa, \rhi, 32-8
+        bnez    \tpa, 4f
+        add     \tpb, \tpb, 8
+        sll     \rhi, \rhi, 8
+
+// Next normalization, we know we have at least 4 bits to shift.
+4:
+        srl     \tpa, \rhi, 32-4
+        bnez    \tpa, 2f
+        add     \tpb, \tpb, 4
+        sll     \rhi, \rhi, 4
+
+// Next normalization, we know we have at least 4 bits to shift.
+2:
+        srl     \tpa, \rhi, 32-2
+        bnez    \tpa, 1f
+        add     \tpb, \tpb, 2
+        sll     \rhi, \rhi, 2
+
+// Next normalization, we know we have at least 4 bits to shift.
+1:
+        bltz    \rhi, 0f
+        add     \tpb, \tpb, 1
+        sll     \rhi, \rhi, 1
+0:
+
+#endif
+
+// Shift low word.
+.ifc \ini,
+  .ifc \pos,pos
+        sub     \cnt, \cnt, \tpb
+        neg     \tpa, \tpb
+        srl     \tpa, \rlo, \tpa
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+  .else
+        sub     \cnt, \cnt, \tpb
+        not     \tpa, \tpb
+        srl     \tpa, \rlo, \tpa
+        srl     \tpa, \tpa, 1
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+  .endif
+.else
+  .ifc \pos,pos
+        neg     \cnt, \tpb
+        srl     \tpa, \rlo, \cnt
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+        add     \cnt, \cnt, (\ini)      // +1 to compensate for the 'not' rather than 'neg'
+  .else
+        not     \cnt, \tpb
+        srl     \tpa, \rlo, \cnt
+        srl     \tpa, \tpa, 1
+        or      \rhi, \rhi, \tpa
+        sll     \rlo, \rlo, \tpb
+        add     \cnt, \cnt, (\ini)+1    // +1 to compensate for the 'not' rather than 'neg'
+  .endif
+.endif
+
+#endif
+
+.endm
+
+#endif
+
+#endif

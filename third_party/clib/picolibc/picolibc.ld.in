@@ -1,0 +1,1966 @@
+Head Preconditions	Stub Preconditions
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atan: *__return = 7.853981633974483e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atan: *__return = -7.853981633974483e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atan: *__return = 1.570796326794897e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atan: *__return = -1.570796326794897e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atan: *__return = 0.000000000000000e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atan: *__return = 1.107148717794090e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atan: *__return = 4.636476090008061e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"sqrt: *__return = 5.000000000000000e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"sqrt: *__return = 7.071067811865478e-02;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"sqrt: *__return = 3.535533905932738e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	scalbnf: *__return = 1.000000000000000e+00;
+Header file: math.h	scalbnf: *__return = 0.000000000000000e+00;
+Header file: math.h	scalbnf: *__return = NAN;
+Header file: math.h	scalbnf: *__return = 1.401298464324817e-45;
+Header file: math.h	scalbnf: *__return = -0.000000000000000e+00;
+Header file: math.h	scalbnf: *__return = INFINITY;
+Header file: math.h	scalbnf: *__return = -INFINITY;
+Header file: math.h	scalbnf: *__return = 0.000000000000000e+00;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"sqrt: *__return = 2.000000000000000e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"sqrt: *__return = 1.414213562373095e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"sqrt: *__return = 0.000000000000000e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"sqrt: *__return = INFINITY;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"scalbn: *__return = 4.940656458412466e-324;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"scalbn: *__return = 4.940656458412466e-324;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"scalbn: *__return = 1.133498244437276e-308;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	"fabs: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbn: default impl — multiplies x by 2.0 n times (x * 2^n via loop)"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = 1.718281745910645e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = 1.000500167720020e-03;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = 2.202546484375000e+04;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = 4.851651840000000e+08;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expf: *__return = 2.118870617105734e+19;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expf: *__return = 3.325976864406685e+38;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	scalbn: *__return = 1.000000000000000e+00;
+Header file: math.h	scalbn: *__return = 0.000000000000000e+00;
+Header file: math.h	scalbn: *__return = NAN;
+Header file: math.h	scalbn: *__return = 4.940656458412466e-324;
+Header file: math.h	scalbn: *__return = -0.000000000000000e+00;
+Header file: math.h	scalbn: *__return = INFINITY;
+Header file: math.h	scalbn: *__return = -INFINITY;
+Header file: math.h	scalbn: *__return = 0.000000000000000e+00;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	logf: *__return = 0.000000000000000e+00;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	logf: *__return = -6.079812645912170e-01;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: errno.h	no stub dependency
+Header file: errno.h	no stub dependency
+Header file: errno.h	no stub dependency
+Header file: errno.h	no stub dependency
+Header file: errno.h	no stub dependency
+Header file: errno.h	sqrt: *__return = 5.000000000000000e-01;
+Header file: errno.h	no stub dependency
+Header file: errno.h	sqrt: *__return = 3.535533905932738e-01;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"scalbn: *__return = values[] { 6.518986206054687e+02, 1.013183593750000e-01, 1.660000000000000e+03, 6.103515625000000e-05 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.273239493370056e+00, 2.292099000000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 4.412229003906250e+02, 3.652000000000000e+03, 6.103515625000000e-05 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098733425140e-01, 5.340353500000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.273239493370056e+00, 2.292099000000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.273239493370056e+00, 2.292099000000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.546478986740112e+00, 4.535207748413086e-01, 1.902204000000000e+06, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { -2.546478986740112e+00, 1.902205000000000e+06, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.891598400000000e+07, 2.891598400000000e+07, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.999999838631759e+00, -3.154689167672586e-07, -6.615862697362900e-01, 4.768371582031250e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.273239493370056e+00, 2.292099000000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.591549366712570e-01, 5.340353500000000e+06, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.546478986740112e+00, 4.535207748413086e-01, 1.902204000000000e+06, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.092957973480225e+00, 1.949470000000000e+05, 4.768371582031250e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.518986206054687e+02, 1.013183593750000e-01, 1.660000000000000e+03, 6.103515625000000e-05 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.675441875000000e+05, 3.000000000000000e+00, 6.250000000000000e-02 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.891598400000000e+07, 2.891598400000000e+07, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { -2.546478986740112e+00, 1.902205000000000e+06, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.366197466850281e-01, 3.633801937103271e-01, 6.096508000000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.366197466850281e-01, 3.633801937103271e-01, 6.096508000000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 9.999999596579396e-01, -7.886722919181466e-08, -6.615862697362900e-01, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.999999838631759e+00, -7.705033766569613e-08, -3.231725394725800e-01, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 7.999999915682096e+00, -1.541006753313923e-07, -6.463450789451599e-01, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { -7.999999915682096e+00, 3.536549210548401e-01, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.018591594696045e+01, 1.949470000000000e+05, 9.536743164062500e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.629746551513672e+02, 2.532958984375000e-02, 1.660000000000000e+03, 1.525878906250000e-05 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 4.172151171875000e+04, 4.843750000000000e-01, 1.240000000000000e+02, 3.906250000000000e-03 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.068070700000000e+07, 1.068070700000000e+07, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.103057250976562e+02, 2.003600000000000e+04, 1.525878906250000e-05 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.273239493370056e+00, 2.292099000000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.366197466850280e-02, 1.068070700000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { -6.366197466850281e-01, 3.048254500000000e+06, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.823826562500000e+04, 6.800000000000000e+01, 3.906250000000000e-03 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.386240234375000e+02, 3.757324218750000e-01, 1.539000000000000e+03, 2.441406250000000e-04 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.136141400000000e+07, 2.136141400000000e+07, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 4.272282800000000e+07, 4.272282800000000e+07, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.068070700000000e+07, 1.068070700000000e+07, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.068070700000000e+07, 1.068070700000000e+07, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.340353500000000e+06, 0.000000000000000e+00, 5.340353500000000e+06, 0.000000000000000e+00, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.068070700000000e+07, 1.068070700000000e+07, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.147295961176400e+13, 1.147295961176400e+13, 1.192092895507812e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.294591922322000e+13, 2.294591922322000e+13, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.428651429406750e+12, 0.000000000000000e+00, 1.428651429406750e+12, 0.000000000000000e+00, 1.490116119384766e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.725542762138000e+12, 5.725542762138000e+12, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.725542761882000e+12, 5.725542761882000e+12, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.336834085681438e+05, 6.854636000000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 2.670176750000000e+06, -2.500000000000000e-01, -5.000000000000000e-01, 5.000000000000000e-01 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 1.897274692908013e-08, 1.068070700000000e+07, 1.776356839400250e-15 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098672110418e-01, 1.791925249200000e+14, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098861837887e-01, 1.791925356007070e+14, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098733425140e-01, 5.340353500000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.340353500000000e+06, 0.000000000000000e+00, 5.340353500000000e+06, 0.000000000000000e+00, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.092957973480225e+00, 1.949470000000000e+05, 4.768371582031250e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.340353500000000e+06, 0.000000000000000e+00, 5.340353500000000e+06, 0.000000000000000e+00, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098672110418e-01, 1.791925249200000e+14, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 3.183098861837887e-01, 1.791925356007070e+14, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.340353500000000e+06, 0.000000000000000e+00, 5.340353500000000e+06, 0.000000000000000e+00, 2.980232238769531e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.366197466850281e-01, 3.633801937103271e-01, 6.096508000000000e+06, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 5.725542761831000e+12, 5.725542761831000e+12, 5.960464477539062e-08 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 6.366197723675810e-01, 3.633802276324047e-01, 2.557061027748600e+13, 2.384185791015625e-07 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	"scalbn: *__return = values[] { 0.000000000000000e+00, 0.000000000000000e+00, 1.262177448353619e-29 };,
+floor: default impl — returns floor(x): largest integer ≤ x via integer cast"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	"__kernel_sin: *__return = -6.123233995736766e-17;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_cos: *__return = 1.000000000000000e+00;,
+__rem_pio2: *__return = 2;"
+Header file: math.h	"__kernel_cos: *__return = 1.000000000000000e+00;,
+__rem_pio2: *__return = 4;"
+Header file: math.h	__kernel_cos: *__return = 1.000000000000000e+00;
+Header file: math.h	"__kernel_sin: *__return = -5.403023058681398e-01;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_sin: *__return = 5.403023058681398e-01;,
+__rem_pio2: *__return = -1;"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	__kernel_cosf: *__return = 1.000000000000000e+00;
+Header file: math.h	"__kernel_sinf: *__return = 4.371138828673793e-08;,
+__rem_pio2f: *__return = 1;"
+Header file: math.h	"__kernel_cosf: *__return = 1.000000000000000e+00;,
+__rem_pio2f: *__return = 2;"
+Header file: math.h	"__kernel_cosf: *__return = 1.000000000000000e+00;,
+__rem_pio2f: *__return = 0;"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	__kernel_cosf: *__return = 8.775825500488281e-01;
+Header file: math.h	"__kernel_sinf: *__return = 4.871876835823059e-01;,
+__rem_pio2f: *__return = 3;"
+Header file: math.h	"__kernel_sinf: *__return = -4.871876835823059e-01;,
+__rem_pio2f: *__return = 1;"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	__kernel_tanf: *__return = 0.000000000000000e+00;
+Header file: math.h	"__kernel_tanf: *__return = 1.000000000000000e+00;,
+__rem_pio2f: *__return = 1;"
+Header file: math.h	"__kernel_tanf: *__return = -1.000000000000000e+00;,
+__rem_pio2f: *__return = 3;"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1: *__return = 6.389056098930650e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1: *__return = -6.321205588285577e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = -1.999999999800000e-10;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = 4.851651944097903e+08;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = -8.619307626891072e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"sqrtf: *__return = 2.000000000000000e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"sqrtf: *__return = INFINITY;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"sqrtf: *__return = 9.999999682655225e-20;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"sqrtf: *__return = 0.000000000000000e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"scalbnf: *__return = 1.401298464324817e-45;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"scalbnf: *__return = 2.802596928649634e-45;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	"fabsf: default impl — returns |x|: negates x if x < 0, else returns x,
+scalbnf: default impl — multiplies x by 2.0f n times (x * 2^n via loop)"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	__kernel_tan: *__return = 9.999999999999999e-01;
+Header file: math.h	__kernel_tan: *__return = -9.999999999999999e-01;
+Header file: math.h	"__kernel_tan: *__return = 1.633123935319537e+16;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_tan: *__return = -1.633123935319537e+16;,
+__rem_pio2: *__return = -1;"
+Header file: math.h	__kernel_tan: *__return = 0.000000000000000e+00;
+Header file: math.h	"__kernel_tan: *__return = 1.557407724654902e+00;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_tan: *__return = -1.557407724654902e+00;,
+__rem_pio2: *__return = -1;"
+Header file: math.h	no stub dependency
+Header file: math.h	log: *__return = 0.000000000000000e+00;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	log: *__return = -5.529300319704418e-01;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	"expm1: *__return = 1.718281828459045e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1: *__return = 1.000500166708342e-03;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = 2.202546579480672e+04;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = 4.851651944097903e+08;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"exp: *__return = 8.218407461554972e+307;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"exp: *__return = 1.494655400472534e+154;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"exp: *__return = 1.896150381621761e+154;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atanf: *__return = 7.853981852531433e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atanf: *__return = -7.853981852531433e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atanf: *__return = 1.570796370506287e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atanf: *__return = -1.570796370506287e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atanf: *__return = 0.000000000000000e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atanf: *__return = 1.107148766517639e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atanf: *__return = 4.636476039886475e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"atanf: *__return = 4.636476039886475e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"atanf: *__return = 4.636476039886475e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	__kernel_sinf: *__return = 0.000000000000000e+00;
+Header file: math.h	"__kernel_cosf: *__return = 1.000000000000000e+00;,
+__rem_pio2f: *__return = 1;"
+Header file: math.h	"__kernel_sinf: *__return = 8.742277657347586e-08;,
+__rem_pio2f: *__return = 2;"
+Header file: math.h	"__kernel_cosf: *__return = 1.000000000000000e+00;,
+__rem_pio2f: *__return = 3;"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	"__kernel_sinf: *__return = -4.205477833747864e-01;,
+__rem_pio2f: *__return = 2;"
+Header file: math.h	"__kernel_sinf: *__return = 6.565766930580139e-01;,
+__rem_pio2f: *__return = 0;"
+Header file: math.h	__kernel_sinf: *__return = 9.999999747378752e-06;
+Header file: math.h	__kernel_sinf: *__return = 4.794255495071411e-01;
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	sqrtf: *__return = 5.000000000000000e-01;
+Header file: math.h	no stub dependency
+Header file: math.h	sqrtf: *__return = 3.535533845424652e-01;
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"exp: *__return = 2.718281828459046e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = 0.000000000000000e+00;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1: *__return = 3.498588075760031e-01;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"exp: *__return = 8.218407461554972e+307;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"exp: *__return = 1.494655400472534e+154;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"exp: *__return = 1.896150381621761e+154;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = 6.389056205749512e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = -6.321205496788025e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = -2.000000026702864e-10;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = 4.851651840000000e+08;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = -8.619307279586792e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = -1.999979940592311e-05;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expm1f: *__return = 1.052199202628148e+19;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = 0.000000000000000e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expf: *__return = 2.718281745910645e+00;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"expm1f: *__return = 3.498588204383850e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expf: *__return = 2.118870617105734e+19;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"expf: *__return = 3.325976864406685e+38;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"sqrtf: *__return = 5.000000000000000e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabsf: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"sqrtf: *__return = 7.071064412593842e-02;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"sqrtf: *__return = 3.535533845424652e-01;,
+fabsf: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	no stub dependency
+Header file: math.h	"__kernel_cos: *__return = 1.000000000000000e+00;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_sin: *__return = -1.224646799147353e-16;,
+__rem_pio2: *__return = 2;"
+Header file: math.h	"__kernel_cos: *__return = 1.000000000000000e+00;,
+__rem_pio2: *__return = -1;"
+Header file: math.h	__kernel_sin: *__return = 0.000000000000000e+00;
+Header file: math.h	"__kernel_cos: *__return = 8.414709848078965e-01;,
+__rem_pio2: *__return = 1;"
+Header file: math.h	"__kernel_cos: *__return = 8.414709848078965e-01;,
+__rem_pio2: *__return = -1;"
+Header file: math.h	no stub dependency
+Header file: math.h	"__kernel_sin: *__return = -2.449293598294706e-16;,
+__rem_pio2: *__return = 4;"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"__kernel_rem_pio2: *__return = 4;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"__kernel_rem_pio2: *__return = 1;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"__kernel_rem_pio2: *__return = 5;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	fabs: default impl — returns |x|: negates x if x < 0, else returns x
+Header file: math.h	"__kernel_rem_pio2: *__return = 6;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	"__kernel_rem_pio2: *__return = 6;,
+fabs: default impl — returns |x|: negates x if x < 0, else returns x"
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: math.h	no stub dependency
+Header file: inttypes.h	no stub dependency
+Header file: inttypes.h	no stub dependency
+Header file: inttypes.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	strtoll: default impl — parses nptr as base-10 signed long long (handles sign, ignores base param)
+Header file: stdlib.h	strtoll: default impl — parses nptr as base-10 signed long long (handles sign, ignores base param)
+Header file: stdlib.h	strtoll: default impl — parses nptr as base-10 signed long long (handles sign, ignores base param)
+Header file: stdlib.h	strtoll: default impl — parses nptr as base-10 signed long long (handles sign, ignores base param)
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	strtol: default impl — parses nptr as base-10 signed long (skips whitespace and sign, ignores base param)
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	isspace: default impl — returns 1 if c is a matching character class, else 0
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: stdlib.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	strcpy: default impl — copies null-terminated src string to dst, returns dst
+Header file: string.h	strcpy: default impl — copies null-terminated src string to dst, returns dst
+Header file: string.h	strcpy: default impl — copies null-terminated src string to dst, returns dst
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	tolower: default impl — returns (c + ('a' - 'A')) if (c >= 'A' && c <= 'Z'), else c
+Header file: string.h	tolower: default impl — returns (c + ('a' - 'A')) if (c >= 'A' && c <= 'Z'), else c
+Header file: string.h	tolower: default impl — returns (c + ('a' - 'A')) if (c >= 'A' && c <= 'Z'), else c
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	tolower: default impl — returns (c + ('a' - 'A')) if (c >= 'A' && c <= 'Z'), else c
+Header file: string.h	tolower: default impl — returns (c + ('a' - 'A')) if (c >= 'A' && c <= 'Z'), else c
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: string.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: ctype.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: stdio.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	__divsi3: default impl — returns a / b; returns -1 if b == 0
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	__addsf3: default impl — returns a + b
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	__udivmoddi4: default impl — returns dividend / divisor; stores remainder in *rem if rem != NULL
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_misc.h	no stub dependency
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	__adddf3: default impl — returns a + b
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency
+Header file: rt_fp.h	no stub dependency

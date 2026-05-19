@@ -1,0 +1,17 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="RISCV Library Build" version="2" target="20" templates_file="$(StudioDir)/targets/project_templates_riscv.xml">
+  <configuration Name="Common" linker_keep_indirect_files="No" arm_supply_absolute_file_path="No" build_generate_dependency_file="No" linker_indirect_file_name="$(IntDir)/$(ProjectName).ind"/>
+  <import file_name="emRun/riscv_auto.emProject"/>
+  <import file_name="libcxx/libcxx_auto.emProject"/>
+  <import file_name="libcxxabi/libcxxabi_auto.emProject" macros="LIBCXX=libcxx"/>
+  <import file_name="libunwind/libunwind_auto.emProject"/>
+  <project Name="all" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common"
+      build_intermediate_directory="../lib/Output/$(ConfigurationHash)/$(ProjectName)"
+      build_output_file_name="$(OutDir)/SEGGER_RV32_crtinit$(LibExt)$(LIB)"
+      build_output_directory="../lib"
+      post_build_command="rm -fr &quot;../lib/Output/$(ConfigurationHash)&quot;"
+      project_dependencies="all(SEGGER-RTL);all(CXXABI);all(UNWIND);all(CXX)"/>
+    <file file_name="$(StudioDir)/samples/SEGGER_RV32_crtinit.s" />
+  </project>
+</solution>

@@ -1,0 +1,271 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="SEGGER-RTL" version="2">
+  <configuration Name="Common" arm_compiler_variant="gcc" arm_unaligned_access="No" build_intermediate_directory="../../lib/Output/$(ConfigurationHash)/$(ProjectName)" build_output_directory="../../lib" build_output_file_name="$(OutDir)/$(ProjectName)$(LibExt)$(LIB)" default_code_section=".text.libc" default_const_section=".rodata.libc" default_data_section=".data.libc" default_zeroed_section=".bss.libc" generate_stack_sizes="No" />
+  <configuration Name="Small" c_preprocessor_definitions="__SEGGER_RTL_OPTIMIZE=-2" />
+  <configuration Name="Balanced" c_preprocessor_definitions="__SEGGER_RTL_OPTIMIZE=0" />
+  <configuration Name="Fast" c_preprocessor_definitions="__SEGGER_RTL_OPTIMIZE=2" />
+  <configuration Name="THUMB" arm_compiler_variant="SEGGER" />
+  <configuration Name="V4" arm_compiler_variant="gcc" />
+  <configuration Name="V4T" arm_compiler_variant="gcc" />
+  <configuration Name="V5TE" arm_compiler_variant="gcc" />
+  <configuration Name="V6" arm_compiler_variant="gcc" />
+  <configuration Name="V5TE VFP" arm_compiler_variant="gcc" />
+  <configuration Name="V6 VFP" arm_compiler_variant="gcc" />
+  <configuration Name="V8A" arm_compiler_variant="gcc" />
+  <configuration Name="V8A FP-ARMv8" arm_compiler_variant="gcc" />
+  <configuration Name="V8R" arm_compiler_variant="gcc" />
+  <configuration Name="V8R FPv5-SP-D16" arm_compiler_variant="gcc" />
+  <project Name="all">
+    <configuration Name="Common" batch_build_configurations="Common" project_dependencies="libc;heapops_basic;heapops_minimal;heapops_realtime;heapops_disable_interrupts_locking;heapops_user_locking;prinops_swo;prinops_swoi;prinops_rtt;prinops_semihost;prinops_semihostformatted;strops;strops_unaligned;mbops_timeops;mbops_timeops_minimal_locale" project_type="Staging" />
+  </project>
+  <project Name="libc" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" gcc_unused_variable_warning="No" />
+    <folder Name="Source Files">
+      <file file_name="atomicops.c">
+        <configuration Name="Common" arm_compiler_variant="gcc" gcc_optimization_level="Level 1" />
+        <configuration Name="V4T" arm_instruction_set="ARM" />
+        <configuration Name="V5TE" arm_instruction_set="ARM" />
+        <configuration Name="V5TE VFP" arm_instruction_set="ARM" />
+        <configuration Name="V6" arm_instruction_set="ARM" />
+        <configuration Name="V6 VFP" arm_instruction_set="ARM" />
+      </file>
+      <file file_name="codesets.c" />
+      <file file_name="config.c" />
+      <file file_name="convops.c" />
+      <file file_name="errno.c" />
+      <file file_name="errno_arm.c" />
+      <file file_name="execops.c" />
+      <file file_name="execops_arm.c" />
+      <file file_name="fileops.c" />
+      <file file_name="fenvops.c" />
+      <file file_name="floatops.c" />
+      <file file_name="intops.c" />
+      <file file_name="locales.c" />
+      <file file_name="phantomops.c" />
+      <file file_name="sortops.c" />
+      <file file_name="utilops.c" />
+      <file file_name="wconvops.c" />
+      <file file_name="wprinops.c" />
+      <file file_name="wscanops.c" />
+      <file file_name="wstrops.c" />
+    </folder>
+    <folder Name="ARM Source Files">
+      <configuration Name="ARM64" build_exclude_from_build="Yes" />
+      <file file_name="asmdefs_arm.ah" />
+      <file file_name="compilerasmops_arm.s" />
+      <file file_name="floatasmops_arm.s" />
+      <file file_name="intasmops_arm.s" />
+      <file file_name="jumpasmops_arm.s" />
+    </folder>
+    <folder Name="ARM64 Source Files">
+      <configuration Name="ARM" build_exclude_from_build="Yes" />
+      <configuration Name="THUMB" build_exclude_from_build="Yes" />
+      <file file_name="jumpasmops_arm64.s" />
+    </folder>
+    <folder Name="prinops/scanops publics">
+      <file file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="WITH_SCANF;WITH_PUBLICS;__SEGGER_RTL_scan=__SEGGER_RTL_vfscanf" />
+      </file>
+      <file file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="WITH_PRINTF;WITH_PUBLICS;__SEGGER_RTL_prin=__SEGGER_RTL_vfprintf" />
+      </file>
+    </folder>
+    <folder Name="prinops.c">
+      <configuration Name="Common" build_object_file_name="$(IntDir)/$(ProjectNodeName)$(OBJ)" c_preprocessor_definitions="__SEGGER_RTL_prin=$(ProjectNodeName)" />
+      <file Name="__SEGGER_RTL_vfprintf_int" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_int_nwp" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_nwp" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_long_nwp" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_float_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_float_long_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_short_float_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_FLOAT;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_short_float_long_long" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_FLOAT;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_int_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_int_nwp_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_nwp_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_long_long_nwp_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=0;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_float_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_float_long_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_short_float_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_FLOAT;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfprintf_short_float_long_long_wchar" file_name="prinops.c">
+        <configuration Name="Common" c_preprocessor_definitions="SUPPORT_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_FLOAT;__SEGGER_RTL_FORMAT_WIDTH_PRECISION=1;__SEGGER_RTL_FORMAT_WCHAR=1" />
+      </file>
+    </folder>
+    <folder Name="scanops.c">
+      <configuration Name="Common" build_object_file_name="$(IntDir)/$(ProjectNodeName)$(OBJ)" c_preprocessor_definitions="__SEGGER_RTL_scan=$(ProjectNodeName)" />
+      <file Name="__SEGGER_RTL_vfscanf_int" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_int_cc" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_INT;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_long" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_long_cc" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_long_long" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_long_long_cc" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_NONE;__SEGGER_RTL_FORMAT_CHAR_CLASS=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_float_long" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_CHAR_CLASS=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_float_long_cc" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_CHAR_CLASS=1" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_float_long_long" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_CHAR_CLASS=0" />
+      </file>
+      <file Name="__SEGGER_RTL_vfscanf_float_long_long_cc" file_name="scanops.c">
+        <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_FORMAT_INT_WIDTH=__WIDTH_LONG_LONG;__SEGGER_RTL_FORMAT_FLOAT_WIDTH=__WIDTH_DOUBLE;__SEGGER_RTL_FORMAT_CHAR_CLASS=1" />
+      </file>
+    </folder>
+  </project>
+  <project Name="strops" template_name="MULTILIB_SEGGER">
+    <file file_name="strops.c" />
+    <file file_name="strasmops_arm.s">
+      <configuration Name="ARM64" build_exclude_from_build="Yes" />
+    </file>
+  </project>
+  <project Name="strops_unaligned" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" arm_unaligned_access="Yes" />
+    <configuration Name="V4" arm_unaligned_access="No" />
+    <configuration Name="V4T" arm_unaligned_access="No" />
+    <configuration Name="V5TE" arm_unaligned_access="No" />
+    <configuration Name="V5TE VFP" arm_unaligned_access="No" />
+    <configuration Name="V6M" arm_unaligned_access="No" />
+    <configuration Name="V8M Baseline" arm_unaligned_access="No" />
+    <file file_name="strops.c" />
+    <file file_name="strasmops_arm.s">
+      <configuration Name="ARM64" build_exclude_from_build="Yes" />
+    </file>
+  </project>
+  <project Name="heapops_basic" template_name="MULTILIB_SEGGER">
+    <file file_name="heapops_basic.c" />
+  </project>
+  <project Name="heapops_minimal" template_name="MULTILIB_SEGGER">
+    <file file_name="heapops_minimal.c" />
+  </project>
+  <project Name="heapops_realtime" template_name="MULTILIB_SEGGER">
+    <file file_name="heapops_realtime.c" />
+    <file file_name="__SEGGER_RTL_RTHEAP.c" />
+  </project>
+  <project Name="heapops_disable_interrupts_locking" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_preprocessor_definitions="__DISABLE_INTERRUPTS_LOCKING" />
+    <file file_name="heapops.c">
+      <configuration Name="V4T" arm_instruction_set="ARM" />
+      <configuration Name="V5TE" arm_instruction_set="ARM" />
+      <configuration Name="V5TE VFP" arm_instruction_set="ARM" />
+      <configuration Name="V6" arm_instruction_set="ARM" />
+      <configuration Name="V6 VFP" arm_instruction_set="ARM" />
+    </file>
+  </project>
+  <project Name="heapops_user_locking" template_name="MULTILIB_SEGGER">
+    <file file_name="heapops.c" />
+  </project>
+  <project Name="prinops_swo" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" build_exclude_from_build="Yes" />
+    <configuration Name="V7EM" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv4-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V7M" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V81M Mainline" build_exclude_from_build="No" />
+    <configuration Name="V81M Mainline FPv5-D16" build_exclude_from_build="No" />
+    <file file_name="prinops_itm.c" />
+  </project>
+  <project Name="prinops_swoi" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" build_exclude_from_build="Yes" c_preprocessor_definitions="INTERRUPTS_DISABLED" />
+    <configuration Name="V7EM" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv4-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V7EM FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V7M" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP FPv5-SP-D16" build_exclude_from_build="No" />
+    <configuration Name="V8M Mainline DSP FPv5-D16" build_exclude_from_build="No" />
+    <configuration Name="V81M Mainline" build_exclude_from_build="No" />
+    <configuration Name="V81M Mainline FPv5-D16" build_exclude_from_build="No" />
+    <file file_name="prinops_itm.c" />
+  </project>
+  <project Name="prinops_rtt" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_user_include_directories="$(StudioDir)/include/RTT" />
+    <file file_name="prinops_rtt.c" />
+    <file file_name="$(StudioDir)/source/RTT/SEGGER_RTT.c" />
+  </project>
+  <project Name="prinops_semihost" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_user_include_directories="$(StudioDir)/include/SEMIHOST" />
+    <file file_name="fileops_semi.c" />
+    <file file_name="$(StudioDir)/source/SEMIHOST/SEGGER_SEMIHOST.c" />
+    <file file_name="$(StudioDir)/source/SEMIHOST/SEGGER_SEMIHOST_Generic.c" />
+  </project>
+  <project Name="prinops_semihostformatted" template_name="MULTIOBJ_SEGGER">
+    <configuration Name="Common" c_user_include_directories="$(StudioDir)/include/SEMIHOST" />
+    <file file_name="prinops_semihostformatted.c" />
+  </project>
+  <project Name="mbops_timeops" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_MINIMAL_LOCALE=0" />
+    <file file_name="mbops.c" />
+    <file file_name="timeops.c" />
+  </project>
+  <project Name="mbops_timeops_minimal_locale" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_preprocessor_definitions="__SEGGER_RTL_MINIMAL_LOCALE=1" />
+    <file file_name="mbops.c" />
+    <file file_name="timeops.c" />
+  </project>
+</solution>

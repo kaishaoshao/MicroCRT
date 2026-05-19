@@ -1,0 +1,1 @@
+ zcc -nostdlib /home/shaokai/Desktop/code/c/picolibc/test/test-stdio/test-newsprintf.c  ./semihost/libsemihost.a ./libc.a  -lclang_rt.builtins  /home/shaokai/Terapines/ZCC/4.1.9/riscv64-unknown-elf/lib/rv64iafd/lp64d/crt0.o -o test

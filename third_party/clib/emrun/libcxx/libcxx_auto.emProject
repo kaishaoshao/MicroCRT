@@ -1,0 +1,56 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="CXX" version="2">
+
+  <configuration Name="Common" 
+      arm_compiler_variant="gcc"
+      build_intermediate_directory="../../lib/Output/$(ConfigurationHash)/$(ProjectName)"
+      build_output_file_name="$(OutDir)/$(ProjectName)$(LibExt)$(LIB)"
+      build_output_directory="../../lib" 
+      default_code_section=".text.libcxx" 
+      default_const_section=".rodata.libcxx" 
+      default_data_section=".data.libcxx" 
+      default_zeroed_section=".bss.libcxx"/>
+
+  <project Name="all">
+    <configuration Name="Common" batch_build_configurations="Common" project_type="Staging" project_dependencies="libcxx;libcxx_noexcept"/>
+  </project>
+  
+  <project Name="libcxx" template_name="MULTILIB_SEGGER">
+    <configuration
+      Name="Common"
+      add_property_group_includes_defines="No"
+      batch_build_configurations="V* * Release;RV* * Release"
+      c_preprocessor_definitions="_LIBCPP_BUILDING_LIBRARY;LIBCXXRT"
+      c_user_include_directories="src/include;include;src"
+      cpp_enable_exceptions="Yes"
+      cpp_enable_rtti="Yes"
+      cpp_only_additional_options="-Wno-deprecated-declarations;-Wno-psabi;-Wno-attributes"
+      gcc_cplusplus_language_standard="c++17"
+      gcc_use_cxa_at_exit="No"
+      gcc_uninitialized_variables_warning="No"
+      arm_compiler_variant="gcc"
+      project_directory=""
+      project_type="Library" />
+    <folder Name="src(*.cpp)" path="src" recurse="No" filter="*.cpp" exclude="format.cpp;legacy_debug_handler.cpp;memory_resource.cpp;new_handler.cpp"/>
+    <folder Name="src/ryu(*.cpp)" path="src/ryu" recurse="No" filter="*.cpp"/>
+  </project>
+  <project Name="libcxx_noexcept" template_name="MULTILIB_SEGGER">
+    <configuration
+      Name="Common"
+      add_property_group_includes_defines="No"
+      batch_build_configurations="V* * Release;RV* * Release"
+      c_preprocessor_definitions="_LIBCPP_BUILDING_LIBRARY;LIBCXXRT;_LIBCPP_HAS_NO_EXCEPTIONS"
+      c_user_include_directories="src/include;include;src"
+      cpp_enable_exceptions="No"
+      cpp_enable_rtti="Yes"
+      cpp_only_additional_options="-Wno-deprecated-declarations;-Wno-psabi;-Wno-attributes"
+      gcc_cplusplus_language_standard="c++17"
+      gcc_use_cxa_at_exit="No"
+      gcc_uninitialized_variables_warning="No"
+      arm_compiler_variant="gcc"
+      project_directory=""
+      project_type="Library" />
+    <folder Name="src(*.cpp)" path="src" recurse="No" filter="*.cpp" exclude="format.cpp;legacy_debug_handler.cpp;memory_resource.cpp;new_handler.cpp"/>
+    <folder Name="src/ryu(*.cpp)" path="src/ryu" recurse="No" filter="*.cpp"/>
+  </project>
+</solution>

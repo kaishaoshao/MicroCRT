@@ -1,0 +1,8 @@
+#include "stdio_private.h"
+#include <stdio.h>
+
+int
+vprintf(const char *fmt, va_list ap)
+{
+    return vfprintf(stdout, fmt, ap);
+}

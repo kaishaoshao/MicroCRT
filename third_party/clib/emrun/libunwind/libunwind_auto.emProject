@@ -1,0 +1,51 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="UNWIND" version="2">
+
+  <configuration Name="Common" 
+      arm_compiler_variant="gcc"
+      build_intermediate_directory="../../lib/Output/$(ConfigurationHash)/$(ProjectName)"
+      build_output_file_name="$(OutDir)/$(ProjectName)$(LibExt)$(LIB)"
+      build_output_directory="../../lib" 
+      default_code_section=".text.libunwind" 
+      default_const_section=".rodata.libunwind" 
+      default_data_section=".data.libunwind" 
+      default_zeroed_section=".bss.libunwind"/>
+
+  <project Name="all">
+    <configuration Name="Common" batch_build_configurations="Common" project_type="Staging" project_dependencies="libunwind"/>
+  </project>
+  
+  <project Name="libunwind" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" cpp_enable_exceptions="No" cpp_enable_rtti="No" gcc_c_language_standard="gnu11" gcc_cplusplus_language_standard="gnu++11" libcxx="No"/>
+    <folder Name="Unwind Source Files">
+      <configuration Name="Common" c_preprocessor_definitions="_LIBUNWIND_IS_NATIVE_ONLY;_LIBUNWIND_IS_BAREMETAL;_LIBUNWIND_HAS_NO_THREADS;_LIBUNWIND_NO_HEAP" gcc_return_type_warning="Disable"/>
+      <file file_name="assembly.h"/>
+      <file file_name="AddressSpace.hpp"/>
+      <file file_name="CompactUnwinder.hpp"/>
+      <file file_name="config.h"/>
+      <file file_name="dwarf2.h"/>
+      <file file_name="DwarfInstructions.hpp"/>
+      <file file_name="DwarfParser.hpp"/>
+      <file file_name="EHHeaderParser.hpp"/>
+      <file file_name="libunwind.cpp"/>
+      <file file_name="libunwind_ext.h"/>
+      <file file_name="Registers.hpp"/>
+      <file file_name="RWMutex.hpp"/>
+      <file file_name="UnwindCursor.hpp"/>
+      <file file_name="Unwind-EHABI.cpp">
+        <configuration Name="Common" build_exclude_from_build="Yes" arm_unwind_tables="Yes"/>
+        <configuration Name="ARM" build_exclude_from_build="No"/>
+        <configuration Name="THUMB" build_exclude_from_build="No"/>
+      </file>
+      <file file_name="Unwind-EHABI.h"/>
+      <file file_name="UnwindLevel1.c">
+        <configuration Name="Common" arm_unwind_tables="Yes"/>
+      </file>
+      <file file_name="UnwindLevel1-gcc-ext.c">
+        <configuration Name="Common" arm_unwind_tables="Yes"/>
+      </file>
+      <file file_name="UnwindRegistersRestore.S"/>
+      <file file_name="UnwindRegistersSave.S"/>
+    </folder>
+  </project>
+</solution>

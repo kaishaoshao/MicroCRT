@@ -1,0 +1,103 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="CXXABI" version="2">
+
+  <configuration Name="Common" 
+      arm_compiler_variant="gcc"
+      build_intermediate_directory="../../lib/Output/$(ConfigurationHash)/$(ProjectName)"
+      build_output_file_name="$(OutDir)/$(ProjectName)$(LibExt)$(LIB)"
+      build_output_directory="../../lib" 
+      default_code_section=".text.libcxxabi" 
+      default_const_section=".rodata.libcxxabi" 
+      default_data_section=".data.libcxxabi" 
+      default_zeroed_section=".bss.libcxxabi"/>
+
+  <project Name="all">
+    <configuration Name="Common" batch_build_configurations="Common" project_type="Staging" project_dependencies="libcxxabi;libcxxabi_noexcept"/>
+  </project>
+  
+  <project Name="libcxxabi" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" c_preprocessor_definitions="NDEBUG" cpp_enable_exceptions="No" cpp_enable_rtti="No" gcc_c_language_standard="gnu11" gcc_cplusplus_language_standard="gnu++11" is_cpp_project="No" />
+    <folder Name="Libcxxabi Source Files">
+      <configuration Name="Common" c_preprocessor_definitions="_LIBCXXABI_HAS_NO_THREADS;LIBCXXABI_SILENT_TERMINATE;_NOEXCEPT=noexcept;_LIBCPP_HAS_NO_THREADS;LIBCXXABI_BAREMETAL;_LIBCXXABI_WEAK=__attribute__((__weak__));_THROW_BAD_ALLOC=;_LIBCXXABI_NO_CFI=" />
+      <file file_name="abort_message.cpp"/>
+      <file file_name="cxa_atexit.c"/>
+      <file file_name="cxa_aux_runtime.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes"/>
+      </file>
+      <file file_name="cxa_default_handlers.cpp">
+        <configuration Name="Common" cpp_enable_rtti="Yes"/>
+      </file>
+      <file file_name="cxa_demangle.cpp">
+        <configuration Name="Common" c_user_include_directories="../$(LIBCXX:libcxx)/include"/>
+      </file>
+      <file file_name="cxa_exception.cpp">
+        <configuration Name="Common" arm_unwind_tables="Yes" use_compiler_driver="No" gcc_emit_assembler_cfi="No"/>
+      </file>
+      <file file_name="cxa_exception_storage.cpp"/>
+      <file file_name="cxa_guard.cpp"/>
+      <file file_name="cxa_handlers.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes"/>
+      </file>
+      <file file_name="cxa_personality.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes" cpp_enable_rtti="Yes"/>
+      </file>
+      <file file_name="cxa_thread_atexit.cpp">
+        <configuration Name="Common" build_exclude_from_build="Yes"/>
+      </file>
+      <file file_name="cxa_unexpected.cpp"/>
+      <file file_name="cxa_vector.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes"/>
+      </file>
+      <file file_name="cxa_virtual.cpp"/>
+      <file file_name="fallback_malloc.cpp"/>
+      <file file_name="gcc_personality_v0.c">
+        <configuration Name="Common" c_preprocessor_definitions="COMPILER_RT_ABI="/>
+      </file>
+      <file file_name="private_typeinfo.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes" cpp_enable_rtti="Yes"/>
+      </file>
+      <file file_name="stdlib_exception.cpp">
+      <configuration Name="Common" cpp_enable_rtti="Yes" use_compiler_driver="No"/>
+      </file>
+      <file file_name="stdlib_new_delete.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes" gcc_cplusplus_language_standard="gnu++17"/>
+      </file>
+      <file file_name="stdlib_stdexcept.cpp">
+        <configuration Name="Common" build_exclude_from_build="Yes"/>
+      </file>
+      <file file_name="stdlib_typeinfo.cpp">
+        <configuration Name="Common" cpp_enable_exceptions="Yes" cpp_enable_rtti="Yes"/>
+      </file>
+    </folder>
+  </project>
+  <project Name="libcxxabi_noexcept" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common" cpp_enable_exceptions="No" cpp_enable_rtti="No" gcc_c_language_standard="gnu11" gcc_cplusplus_language_standard="gnu++11" is_cpp_project="No"/>
+    <folder Name="Libcxxabi Source Files">
+      <configuration Name="Common" c_preprocessor_definitions="_LIBCXXABI_HAS_NO_THREADS;LIBCXXABI_SILENT_TERMINATE;_NOEXCEPT=noexcept;_LIBCPP_HAS_NO_THREADS;_LIBCPP_HAS_NO_EXCEPTIONS;LIBCXXABI_BAREMETAL;_THROW_BAD_ALLOC=;_LIBCXXABI_NO_EXCEPTIONS;_LIBCXXABI_NO_CFI=" />
+      <file file_name="abort_message.cpp"/>
+      <file file_name="cxa_atexit.c"/>
+      <file file_name="cxa_aux_runtime.cpp"/>
+      <file file_name="cxa_default_handlers.cpp">
+        <configuration Name="Common" cpp_enable_rtti="Yes"/>
+      </file>
+      <file file_name="cxa_demangle.cpp">
+        <configuration Name="Common" c_user_include_directories="../$(LIBCXX:libcxx)/include"/>
+      </file>
+      <file file_name="cxa_guard.cpp"/>
+      <file file_name="cxa_handlers.cpp"/>
+      <file file_name="cxa_noexception.cpp"/>
+      <file file_name="cxa_unexpected.cpp"/>
+      <file file_name="cxa_vector.cpp"/>
+      <file file_name="cxa_virtual.cpp"/>
+      <file file_name="private_typeinfo.cpp">
+        <configuration Name="Common" cpp_enable_rtti="Yes"/>
+      </file>
+      <file file_name="stdlib_new_delete.cpp">
+        <configuration Name="Common" gcc_cplusplus_language_standard="gnu++17"/>
+      </file>
+      <file file_name="stdlib_typeinfo.cpp">
+        <configuration Name="Common" cpp_enable_rtti="Yes"/>
+      </file>
+    </folder>
+  </project>
+</solution>

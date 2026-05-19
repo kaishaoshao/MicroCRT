@@ -1,0 +1,44 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="ARM Library Build" version="2" target="8" templates_file="$(StudioDir)/targets/project_templates.xml">
+  <configuration Name="Common" linker_keep_indirect_files="No" arm_supply_absolute_file_path="No" build_generate_dependency_file="No" linker_indirect_file_name="$(IntDir)/$(ProjectName).ind"/>
+  <import file_name="emRun/arm_auto.emProject"/>
+  <import file_name="libcxx/libcxx_auto.emProject"/>
+  <import file_name="libcxxabi/libcxxabi_auto.emProject" macros="LIBCXX=libcxx"/>
+  <import file_name="libunwind/libunwind_auto.emProject"/>
+  <project Name="all" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common"
+      build_intermediate_directory="../lib/Output/$(ConfigurationHash)/SEGGER_crtinit"
+      build_output_file_name="$(OutDir)/SEGGER_crtinit$(LibExt)$(LIB)"
+      build_output_directory="../lib"
+      post_build_command="rm -fr &quot;../lib/Output/$(ConfigurationHash)&quot;"
+      project_dependencies="all(SEGGER-RTL);all(CXXABI);all(UNWIND);all(CXX);SEGGER_STOP"/>
+    <file file_name="$(StudioDir)/samples/SEGGER_crtinit.s" >
+      <configuration Name="ARM64" build_exclude_from_build="Yes"/>
+    </file>
+  </project>
+  <project Name="SEGGER_STOP" template_name="MULTILIB_SEGGER">
+    <configuration Name="Common"
+      build_exclude_from_build="Yes"
+      build_intermediate_directory="../lib/Output/$(ConfigurationHash)/SEGGER_STOP"
+      build_output_file_name="$(OutDir)/SEGGER_STOP$(LibExt)$(LIB)"
+      build_output_directory="../lib"/>
+    <foreach arch="V7A,V7A_IDIV,V7M,V7EM,V7R,V7R_IDIV,V8A,V8M Mainline,V8M Mainline DSP,V81M Mainline,V8R">
+      <configuration Name="$(arch)" build_exclude_from_build="No" />
+    </foreach>
+    <foreach arch="V7A VFPv3-D32,V7A VFPv4-D16,V7A VFPv4-D32,V7A_IDIV VFPv4-D32,V7EM FPv4-SP-D16,V7EM FPv5-SP-D16,V7EM FPv5-D16,V7R VFPv3-D16,V7R_IDIV VFPv3-D16,V8A FP-ARMv8,V8M Mainline FPv5-SP-D16,V8M Mainline FPv5-D16,V8M Mainline DSP FPv5-SP-D16,V8M Mainline DSP FPv5-D16,V8R FPv5-SP-D16,V81M Mainline FPv5-D16">
+      <configuration Name="$(arch)" build_exclude_from_build="No" />
+    </foreach>
+    <file file_name="$(StudioDir)/samples/SEGGER_STOP_v7M.s" >
+      <configuration Name="Common" build_exclude_from_build="Yes"/>
+      <foreach arch="V7EM,V7M,V7EM FPv4-SP-D16,V7EM FPv5-D16,V7EM FPv5-SP-D16,V8M Mainline,V8M Mainline DSP,V81M Mainline,V8M Mainline FPv5-SP-D16,V8M Mainline FPv5-D16,V8M Mainline DSP FPv5-SP-D16,V8M Mainline DSP FPv5-D16,V81M Mainline FPv5-D16">
+        <configuration Name="$(arch)" build_exclude_from_build="No" />
+      </foreach>
+    </file>
+    <file file_name="$(StudioDir)/samples/SEGGER_STOP_v7M.s" >
+      <configuration Name="Common" build_exclude_from_build="Yes" c_preprocessor_definitions="__SEGGER_STOP_USE_PSP=0"/>
+      <foreach arch="V7A,V7A_IDIV,V7R,V7R_IDIV,V7A VFPv3-D32,V7A VFPv4-D16,V7A VFPv4-D32,V7A_IDIV VFPv4-D32,V7R VFPv3-D16,V7R_IDIV VFPv3-D16,V8A,V8A FP-ARMv8,V8R,V8R FPv5-SP-D16">
+        <configuration Name="$(arch)" build_exclude_from_build="No" />
+      </foreach>
+    </file>
+  </project>
+</solution>

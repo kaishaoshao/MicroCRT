@@ -1,0 +1,22 @@
+<!DOCTYPE CrossStudio_Group_Values>
+<propertyGroups>
+  <group
+    group="Libraries"
+    short="C++ Library"
+    long="Set up include paths and link the C++ Library into your application"
+    name="libcxx"
+    default="Yes (No Exceptions)">
+    <groupEntry name="Yes">
+      <cinclude value="$(StudioDir)/source/libcxx/include" />
+      <library name="$(LinkLibraries)/libcxx$(LibExt)$(LIB)" />
+      <property name="debug_type_file" value="$(StudioDir)/bin/libc++.xml" />
+    </groupEntry>
+    <groupEntry name="Yes (No Exceptions)">
+      <cinclude value="$(StudioDir)/source/libcxx/include" />
+      <cdefine value="_LIBCPP_HAS_NO_EXCEPTIONS"/>
+      <library name="$(LinkLibraries)/libcxx_noexcept$(LibExt)$(LIB)" />
+      <property name="debug_type_file" value="$(StudioDir)/bin/libc++.xml" />
+    </groupEntry>
+    <groupEntry name="No"/>
+  </group>
+</propertyGroups>

@@ -1,0 +1,281 @@
+// **********************************************************************
+// *                    SEGGER Microcontroller GmbH                     *
+// *                        The Embedded Experts                        *
+// **********************************************************************
+// *                                                                    *
+// *            (c) 2014 - 2025 SEGGER Microcontroller GmbH             *
+// *            (c) 2001 - 2025 Rowley Associates Limited               *
+// *                                                                    *
+// *           www.segger.com     Support: support@segger.com           *
+// *                                                                    *
+// **********************************************************************
+// *                                                                    *
+// * All rights reserved.                                               *
+// *                                                                    *
+// * Redistribution and use in source and binary forms, with or         *
+// * without modification, are permitted provided that the following    *
+// * condition is met:                                                  *
+// *                                                                    *
+// * - Redistributions of source code must retain the above copyright   *
+// *   notice, this condition and the following disclaimer.             *
+// *                                                                    *
+// * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND             *
+// * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,        *
+// * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF           *
+// * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE           *
+// * DISCLAIMED. IN NO EVENT SHALL SEGGER Microcontroller BE LIABLE FOR *
+// * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR           *
+// * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT  *
+// * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;    *
+// * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      *
+// * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT          *
+// * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE  *
+// * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH   *
+// * DAMAGE.                                                            *
+// *                                                                    *
+// **********************************************************************
+
+#ifndef __cmath_h
+#define __cmath_h
+
+#include <math.h>
+
+namespace std {
+  
+  using ::acos;
+  using ::acosf;
+  using ::acosl;
+
+  using ::acosh;
+  using ::acoshf;
+  using ::acoshl;
+
+  using ::asin;
+  using ::asinf;
+  using ::asinl;
+  
+  using ::asinh;
+  using ::asinhf;
+  using ::asinhl;
+    
+  using ::atan;
+  using ::atanf;
+  using ::atanl;
+  
+  using ::atan2;
+  using ::atan2f;
+  using ::atan2l;
+
+  using ::atanh;
+  using ::atanhf;
+  using ::atanhl;
+
+  using ::cbrt;
+  using ::cbrtf;
+  using ::cbrtl;
+
+  using ::ceil;
+  using ::ceilf;
+  using ::ceill;
+  
+  using ::copysign;
+  using ::copysignf;
+  using ::copysignl;
+    
+  using ::cos;
+  using ::cosf;
+  using ::cosl;
+
+  using ::cosh;
+  using ::coshf;
+  using ::coshl;
+
+  using ::erf;
+  using ::erff;
+  using ::erfl;
+
+  using ::erfc;
+  using ::erfcf;
+  using ::erfcl;
+
+  using ::exp;
+  using ::expf;
+  using ::expl;
+
+  using ::exp2;
+  using ::exp2f;
+  using ::exp2l;
+
+  using ::expm1;
+  using ::expm1f;
+  using ::expm1l;
+
+  using ::fabs;
+  using ::fabsf;
+  using ::fabsl;
+
+  using ::fdim;
+  using ::fdimf;
+  using ::fdiml;
+
+  using ::floor;
+  using ::floorf;
+  using ::floorl;
+
+  using ::fma;
+  using ::fmaf;
+  using ::fmal;
+
+  using ::fmax;
+  using ::fmaxf;
+  using ::fmaxl;
+
+  using ::fmin;
+  using ::fminf;
+  using ::fminl;
+
+  using ::fmod;
+  using ::fmodf;
+  using ::fmodl;
+
+  using ::fpclassify;
+
+  using ::frexp;
+  using ::frexpf;
+  using ::frexpl;
+
+  using ::hypot;
+  using ::hypotf;
+  using ::hypotl;
+
+  using ::ilogb;
+  using ::ilogbf;
+  using ::ilogbl;
+
+  using ::isinf;
+  using ::isnan;
+  using ::isfinite;
+  using ::isnormal;
+  using ::isunordered;
+  using ::isgreater;
+  using ::isgreaterequal;
+  using ::isless;
+  using ::islessequal;
+  using ::islessgreater;
+
+  using ::ldexp;
+  using ::ldexpf;
+  using ::ldexpl;
+
+  using ::lgamma;
+  using ::lgammaf;
+  using ::lgammal;
+
+  using ::llrint;
+  using ::llrintf;
+  using ::llrintl;
+
+  using ::llround;
+  using ::llroundf;
+  using ::llroundl;
+
+  using ::log;
+  using ::logf;
+  using ::logl;
+  
+  using ::log10;
+  using ::log10f;
+  using ::log10l;
+
+  using ::log1p;
+  using ::log1pf;
+  using ::log1pl;
+
+  using ::log2;
+  using ::log2f;
+  using ::log2l;
+
+  using ::logb;
+  using ::logbf;
+  using ::logbl;
+
+  using ::lrint;
+  using ::lrintf;
+  using ::lrintl;
+
+  using ::lround;
+  using ::lroundf;
+  using ::lroundl;
+    
+  using ::modf;
+  using ::modff;
+  using ::modfl;
+
+  using ::nearbyint;
+  using ::nearbyintf;
+  using ::nearbyintl;
+
+  using ::nextafter;
+  using ::nextafterf;
+  using ::nextafterl;
+  
+  using ::pow;
+  using ::powf;
+  using ::powl;
+
+  using ::remainder;
+  using ::remainderf;
+  using ::remainderl;
+
+  using ::remquo;
+  using ::remquof;
+  using ::remquol;
+
+  using ::rint;
+  using ::rintf;
+  using ::rintl;
+
+  using ::round;
+  using ::roundf;
+  using ::roundl;
+
+  using ::scalbn;
+  using ::scalbnf;
+  using ::scalbnl;
+
+  using ::scalbln;
+  using ::scalblnf;
+  using ::scalblnl;
+
+  using ::sin;
+  using ::sinf;
+  using ::sinl;
+
+  using ::signbit;
+
+  using ::sinh;
+  using ::sinhf;
+  using ::sinhl;
+  
+  using ::sqrt;
+  using ::sqrtf;
+  using ::sqrtl;
+
+  using ::tan;
+  using ::tanf;
+  using ::tanl;
+   
+  using ::tanh;
+  using ::tanhf;
+  using ::tanhl;
+
+  using ::tgamma;
+  using ::tgammaf;
+  using ::tgammal;
+
+  using ::trunc;
+  using ::truncf;
+  using ::truncl;
+}
+
+#endif
