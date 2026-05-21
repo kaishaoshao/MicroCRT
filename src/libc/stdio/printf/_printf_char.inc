@@ -1,3 +1,12 @@
+/*
+ * Conversion: %c / %lc
+ *
+ * Responsibilities:
+ * - extract one character argument
+ * - optionally route wide-character case
+ * - hand string-style padding/output back to the shared string path
+ */
+
 {
 #ifdef _NEED_IO_SHRINK
     my_putc(va_arg(ap, int), stream);

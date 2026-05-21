@@ -1,14 +1,7 @@
-#include "stdio_private.h"
+/*
+ * Compatibility wrapper.
+ *
+ * The real fprintf() wrapper now lives under api/.
+ */
 
-int
-fprintf(FILE *stream, const char *fmt, ...)
-{
-    va_list ap;
-    int i;
-
-    va_start(ap, fmt);
-    i = vfprintf(stream, fmt, ap);
-    va_end(ap);
-
-    return i;
-}
+#include "api/fprintf.c"

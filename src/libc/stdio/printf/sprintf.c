@@ -1,27 +1,7 @@
-#include "stdio_private.h"
+/*
+ * Compatibility wrapper.
+ *
+ * The real sprintf()/vsprintf() wrappers now live under api/.
+ */
 
-int
-sprintf(char *s, const char *fmt, ...)
-{
-    va_list ap;
-    int i;
-    struct __file_str f = FDEV_SETUP_STRING_WRITE(s, NULL);
-
-    va_start(ap, fmt);
-    i = vfprintf(&f.file, fmt, ap);
-    va_end(ap);
-
-    *f.pos = '\0';
-    return i;
-}
-
-int
-vsprintf(char *s, const char *fmt, va_list ap)
-{
-    int i;
-    struct __file_str f = FDEV_SETUP_STRING_WRITE(s, NULL);
-
-    i = vfprintf(&f.file, fmt, ap);
-    *f.pos = '\0';
-    return i;
-}
+#include "api/sprintf.c"

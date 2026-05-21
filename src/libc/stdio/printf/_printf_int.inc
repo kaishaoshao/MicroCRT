@@ -1,3 +1,13 @@
+/*
+ * Conversion: %d / %i / %u / %o / %x / %X / %p
+ *
+ * Responsibilities:
+ * - choose base and signedness
+ * - apply alternate/sign/zero-pad/precision rules
+ * - normalize pointer handling into integer formatting
+ * - emit the final digit sequence from the shared ultoa buffer
+ */
+
 {
     if (c == 'd' || c == 'i') {
         ultoa_signed_t x_s;

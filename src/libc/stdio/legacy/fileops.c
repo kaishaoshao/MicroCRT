@@ -1,4 +1,4 @@
-#include "stdio_private.h"
+#include "../printf/printf_bridge.h"
 
 int
 __file_str_put(char c, FILE *stream)

@@ -1,3 +1,12 @@
+/*
+ * Conversion: %n
+ *
+ * Responsibilities:
+ * - write the current output count back through the typed pointer
+ * - honor size modifiers
+ * - reject %n under the secure VFPRINTF_S path
+ */
+
 {
 #ifdef VFPRINTF_S
     msg = "format string contains percent-n";

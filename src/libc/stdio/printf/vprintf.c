@@ -1,8 +1,7 @@
-#include "stdio_private.h"
-#include <stdio.h>
+/*
+ * Compatibility wrapper.
+ *
+ * The real vprintf() wrapper now lives under api/.
+ */
 
-int
-vprintf(const char *fmt, va_list ap)
-{
-    return vfprintf(stdout, fmt, ap);
-}
+#include "api/vprintf.c"

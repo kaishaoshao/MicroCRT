@@ -29,6 +29,17 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 */
+
+/*
+ * Conversion: %f / %e / %g / %a and long-double variants
+ *
+ * Responsibilities:
+ * - extract float/double/long double according to current variant
+ * - select decimal or hexadecimal float formatting engine
+ * - normalize inf/nan/sign/exponent behavior
+ * - apply width / precision / alternate-form rules
+ */
+
 {
     uint8_t       sign;         /* sign character (or 0)	*/
     uint8_t       ndigs;        /* number of digits to convert */

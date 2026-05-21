@@ -1,3 +1,13 @@
+/*
+ * Conversion: %s / %ls
+ *
+ * Responsibilities:
+ * - extract string pointer
+ * - handle null-string policy
+ * - compute visible length under precision
+ * - perform left/right padding and wide/narrow emission
+ */
+
 {
 #ifdef _NEED_IO_WCHAR
     if (flags & FL_LONG) {

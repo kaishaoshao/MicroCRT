@@ -1,15 +1,7 @@
-#include "stdio_private.h"
-#include <stdio.h>
+/*
+ * Compatibility wrapper.
+ *
+ * The real printf() wrapper now lives under api/.
+ */
 
-int
-printf(const char *fmt, ...)
-{
-    va_list ap;
-    int i;
-
-    va_start(ap, fmt);
-    i = vfprintf(stdout, fmt, ap);
-    va_end(ap);
-
-    return i;
-}
+#include "api/printf.c"
