@@ -22,9 +22,37 @@
 #include <stdio.h>
 
 #include "printf_bridge.h"
+#include "printf_out.h"
 
 #define IO_VARIANT_IS_FLOAT(v) ((v) == __IO_VARIANT_FLOAT || (v) == __IO_VARIANT_DOUBLE)
 
 #define TOLOWER(c) ((c) | ('a' - 'A'))
+
+struct __printf_spec {
+    uint16_t flags;
+#ifndef _NEED_IO_SHRINK
+    int width;
+    int prec;
+#endif
+    int argno;
+};
+
+static inline void
+__printf_spec_reset(struct __printf_spec *spec)
+{
+    spec->flags = 0;
+#ifndef _NEED_IO_SHRINK
+    spec->width = 0;
+    spec->prec = 0;
+#endif
+    spec->argno = 0;
+}
+
+static inline int
+__printf_emit(struct __printf_out *out, int *stream_len, unsigned ch)
+{
+    (*stream_len)++;
+    return out->put((int) ch, out->cookie);
+}
 
 #endif

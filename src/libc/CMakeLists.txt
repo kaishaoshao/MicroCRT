@@ -19,4 +19,10 @@ target_compile_definitions(microcrt_c PRIVATE
   __IO_PERCENT_N
 )
 
+if(MICROCRT_PRINTF_ENABLE_AUTO_FLUSH)
+  target_compile_definitions(microcrt_c PRIVATE
+    MICROCRT_PRINTF_ENABLE_AUTO_FLUSH=1
+  )
+endif()
+
 add_subdirectory(stdio)

@@ -1,9 +1,11 @@
 /*
- * Compatibility wrapper.
+ * Integer-only vfprintf shell.
  *
- * The real integer vfprintf shell now lives under shells/.
- * Keep this top-level filename stable while build files and includes are
- * migrated incrementally.
+ * This shell selects the integer formatter variant and reuses the shared
+ * formatter implementation from ../vfprintf_impl.inc.
  */
 
-#include "shells/vfprintf_integer.c"
+#define PRINTF_VARIANT __IO_VARIANT_INTEGER
+#define PRINTF_NAME __printf_core_integer
+
+#include "vfprintf_impl.inc"

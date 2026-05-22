@@ -30,10 +30,34 @@
   POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* From: Id: printf_p_new.c,v 1.1.1.9 2002/10/15 20:10:28 joerg_wunsch Exp */
-/* $Id: vfprintf.c 2191 2010-11-05 13:45:57Z arcanum $ */
+/*
+ * Conversion: %f / %e / %g / %a and long-double variants
+ *
+ * Shared float-family dispatch block.
+ *
+ * Specifier-specific work is already delegated to:
+ * - _printf_f.c / _printf_e.c / _printf_g.c / _printf_a.c
+ */
 
-#include "vfprintf_variant_config.inc"
-#include "vfprintf_support.inc"
+{
+    unsigned char case_convert;
 
-#include "printf_core_body.inc"
+    case_convert = TOLOWER(c) - c;
+    c = TOLOWER(c);
+
+    if (c == 'f') {
+        if (__printf_entry_f(out, &stream_len, &flags, &prec, &width, case_convert, ap, &u.dtoa) < 0)
+            goto fail;
+    } else if (c == 'e') {
+        if (__printf_entry_e(out, &stream_len, &flags, &prec, &width, case_convert, ap, &u.dtoa) < 0)
+            goto fail;
+    } else if (c == 'g') {
+        if (__printf_entry_g(out, &stream_len, &flags, &prec, &width, case_convert, ap, &u.dtoa) < 0)
+            goto fail;
+#ifdef _NEED_IO_C99_FORMATS
+    } else if (c == 'a') {
+        if (__printf_entry_a(out, &stream_len, &flags, &prec, &width, case_convert, ap, &u.dtoa) < 0)
+            goto fail;
+#endif
+    }
+}

@@ -5,6 +5,7 @@ include(cmake/microcrt_config.cmake)
 
 option(MICROCRT_BUILD_STDIO_LEGACY "Build the imported legacy stdio implementation" OFF)
 option(MICROCRT_BUILD_TESTS "Build MicroCRT local tests" OFF)
+option(MICROCRT_PRINTF_ENABLE_AUTO_FLUSH "Automatically flush file-backed printf sinks before returning" OFF)
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
