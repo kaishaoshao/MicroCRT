@@ -17,23 +17,23 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
     int n;
     uint8_t ndigs_exp;
 
-#ifdef _NEED_IO_LONG_DOUBLE
-    if ((local_flags & (FL_LONG | FL_REPD_TYPE)) == (FL_LONG | FL_REPD_TYPE)) {
+#if PRINTF_CAP_LONG_DOUBLE
+    if ((local_flags & (PRINTF_FLAG_LONG | PRINTF_FLAG_REPEAT_TYPE)) == (PRINTF_FLAG_LONG | PRINTF_FLAG_REPEAT_TYPE)) {
         PRINTF_LONG_DOUBLE_TYPE fval;
         int ndecimal = 0;
         bool fmode = false;
 
         fval = PRINTF_LONG_DOUBLE_ARG(ap);
 
-        if (!(local_flags & FL_PREC))
+        if (!(local_flags & PRINTF_FLAG_PRECISION))
             local_prec = 6;
         if (conv == 'e') {
             ndigs = local_prec + 1;
-            local_flags |= FL_FLTEXP;
+            local_flags |= PRINTF_FLAG_FLOAT_EXP;
         } else if (conv == 'f') {
             ndigs = LONG_FLOAT_MAX_DIG;
             ndecimal = local_prec;
-            local_flags |= FL_FLTFIX;
+            local_flags |= PRINTF_FLAG_FLOAT_FIX;
             fmode = true;
         } else {
             conv += 'e' - 'g';
@@ -57,15 +57,15 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
 
         fval = PRINTF_FLOAT_ARG(ap);
 
-        if (!(local_flags & FL_PREC))
+        if (!(local_flags & PRINTF_FLAG_PRECISION))
             local_prec = 6;
         if (conv == 'e') {
             ndigs = local_prec + 1;
-            local_flags |= FL_FLTEXP;
+            local_flags |= PRINTF_FLAG_FLOAT_EXP;
         } else if (conv == 'f') {
             ndigs = FLOAT_MAX_DIG;
             ndecimal = local_prec;
-            local_flags |= FL_FLTFIX;
+            local_flags |= PRINTF_FLAG_FLOAT_FIX;
             fmode = true;
         } else {
             conv += 'e' - 'g';
@@ -86,10 +86,10 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
         ndigs_exp = 2;
     if (exp < -99 || 99 < exp)
         ndigs_exp = 3;
-#ifdef _NEED_IO_FLOAT64
+#if PRINTF_FLOAT_CAP_64
     if (exp < -999 || 999 < exp)
         ndigs_exp = 4;
-#ifdef _NEED_IO_FLOAT_LARGE
+#if PRINTF_FLOAT_CAP_LARGE
     if (exp < -9999 || 9999 < exp)
         ndigs_exp = 5;
 #endif
@@ -98,9 +98,9 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
     sign = 0;
     if (dtoa->flags & DTOA_MINUS)
         sign = '-';
-    else if (local_flags & FL_PLUS)
+    else if (local_flags & PRINTF_FLAG_PLUS)
         sign = '+';
-    else if (local_flags & FL_SPACE)
+    else if (local_flags & PRINTF_FLAG_SPACE)
         sign = ' ';
 
     if (dtoa->flags & (DTOA_NAN | DTOA_INF)) {
@@ -109,7 +109,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
         ndigs = sign ? 4 : 3;
         if (local_width > ndigs) {
             local_width -= ndigs;
-            if (!(local_flags & FL_LPAD)) {
+            if (!(local_flags & PRINTF_FLAG_LEFT_ADJ)) {
                 do {
                     if (__printf_emit(out, stream_len, ' ') < 0)
                         return -1;
@@ -127,7 +127,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             pnt++;
         }
     } else {
-        if (!(local_flags & (FL_FLTEXP | FL_FLTFIX))) {
+        if (!(local_flags & (PRINTF_FLAG_FLOAT_EXP | PRINTF_FLAG_FLOAT_FIX))) {
             int req_prec;
 
             if (local_prec == 0)
@@ -138,11 +138,11 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
 
             req_prec = local_prec;
 
-            if (!(local_flags & FL_ALT))
+            if (!(local_flags & PRINTF_FLAG_ALT_FORM))
                 local_prec = ndigs;
 
             if (-4 <= exp && exp < req_prec) {
-                local_flags |= FL_FLTFIX;
+                local_flags |= PRINTF_FLAG_FLOAT_FIX;
 
                 if (exp < local_prec)
                     local_prec = local_prec - (exp + 1);
@@ -153,7 +153,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             }
         }
 
-        if (local_flags & FL_FLTFIX)
+        if (local_flags & PRINTF_FLAG_FLOAT_FIX)
             n = (exp > 0 ? exp + 1 : 1);
         else
             n = 3 + ndigs_exp;
@@ -162,12 +162,12 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             n += 1;
         if (local_prec)
             n += local_prec + 1;
-        else if (local_flags & FL_ALT)
+        else if (local_flags & PRINTF_FLAG_ALT_FORM)
             n += 1;
 
         local_width = local_width > n ? local_width - n : 0;
 
-        if (!(local_flags & (FL_LPAD | FL_ZFILL))) {
+        if (!(local_flags & (PRINTF_FLAG_LEFT_ADJ | PRINTF_FLAG_ZERO_FILL))) {
             while (local_width) {
                 if (__printf_emit(out, stream_len, ' ') < 0)
                     return -1;
@@ -177,7 +177,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
         if (sign && __printf_emit(out, stream_len, sign) < 0)
             return -1;
 
-        if (!(local_flags & FL_LPAD)) {
+        if (!(local_flags & PRINTF_FLAG_LEFT_ADJ)) {
             while (local_width) {
                 if (__printf_emit(out, stream_len, '0') < 0)
                     return -1;
@@ -185,7 +185,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             }
         }
 
-        if (local_flags & FL_FLTFIX) {
+        if (local_flags & PRINTF_FLAG_FLOAT_FIX) {
             char digit_out;
 
             n = exp > 0 ? exp : 0;
@@ -204,7 +204,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             } while (1);
             if (__printf_emit(out, stream_len, (unsigned char) digit_out) < 0)
                 return -1;
-            if ((local_flags & FL_ALT) && n == -1 && __printf_emit(out, stream_len, '.') < 0)
+            if ((local_flags & PRINTF_FLAG_ALT_FORM) && n == -1 && __printf_emit(out, stream_len, '.') < 0)
                 return -1;
         } else {
             int pos;
@@ -220,7 +220,7 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
                         < 0)
                         return -1;
                 }
-            } else if (local_flags & FL_ALT) {
+            } else if (local_flags & PRINTF_FLAG_ALT_FORM) {
                 if (__printf_emit(out, stream_len, '.') < 0)
                     return -1;
             }
@@ -234,14 +234,14 @@ __printf_format_fp_dec(struct __printf_out *out, int *stream_len, uint16_t *flag
             }
             if (__printf_emit(out, stream_len, sign) < 0)
                 return -1;
-#ifdef _NEED_IO_FLOAT_LARGE
+#if PRINTF_FLOAT_CAP_LARGE
             if (ndigs_exp > 4) {
                 if (__printf_emit(out, stream_len, exp / 10000 + '0') < 0)
                     return -1;
                 exp %= 10000;
             }
 #endif
-#ifdef _NEED_IO_FLOAT64
+#if PRINTF_FLOAT_CAP_64
             if (ndigs_exp > 3) {
                 if (__printf_emit(out, stream_len, exp / 1000 + '0') < 0)
                     return -1;

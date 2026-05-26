@@ -3,6 +3,7 @@
 
 #include "printf_out.h"
 
+/* String-backed route only: convert char buffer into __printf_out, then call core. */
 static inline int
 __printf_vformat_cstr(char *s, const char *fmt, va_list ap,
                       int (*core)(struct __printf_out *out, const char *fmt, va_list ap))

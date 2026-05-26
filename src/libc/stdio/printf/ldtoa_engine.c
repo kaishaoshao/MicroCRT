@@ -33,11 +33,11 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define _NEED_IO_LONG_DOUBLE
+#define PRINTF_CAP_LONG_DOUBLE 1
 
-#include "printf_float_private.h"
+#include "dtoa.h"
 
-#ifdef _NEED_IO_FLOAT_LARGE
+#if PRINTF_FLOAT_CAP_LARGE
 
 #define max(a, b)           \
     ({                      \

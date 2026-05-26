@@ -26,10 +26,8 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-#include "printf_float_private.h"
+#include "dtoa.h"
 #ifdef FLOAT64
-
-#define _NEED_IO_FLOAT64
 
 #define max(a, b)           \
     ({                      \

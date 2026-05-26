@@ -37,7 +37,7 @@
 #define DTOX_SIZE 8
 #endif
 
-#include "printf_float_private.h"
+#include "dtoa.h"
 
 #if DTOX_SIZE == 4 || defined(FLOAT64)
 
@@ -62,11 +62,8 @@
 #define ASUINT(x)         asuint64(x)
 #define DTOX_NDIGS        14
 
-#define _NEED_IO_FLOAT64
-
 #elif DTOX_SIZE == 4
 
-#define _NEED_IO_FLOAT32
 #define __dtox_engine  __ftox_engine
 
 #define DTOX_UINT      uint32_t

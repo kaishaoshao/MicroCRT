@@ -6,15 +6,16 @@ if(MICROCRT_BUILD_STDIO_LEGACY)
     printf/dtox_engine.c
     printf/ldtoa_engine.c
     printf/ldtox_engine.c
-    printf/matchcaseprefix.c
     fprintf.c
     iprintf.c
     printf.c
+    printf_full.c
     snprintf.c
     sprintf.c
     vfprintf.c
     vprintf.c
-    printf/vfprintf_default.c
-    printf/vfprintf_integer.c
+    printf/printf_core_default.c
+    printf/printf_core_full.c
+    printf/printf_core_integer.c
   )
 endif()

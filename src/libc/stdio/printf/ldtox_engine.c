@@ -45,11 +45,9 @@
  * This code only works with long double type.
  */
 
-#include "printf_float_private.h"
+#include "dtoa.h"
 
 #if __SIZEOF_LONG_DOUBLE__ > 8
-
-#define _NEED_IO_FLOAT_LARGE
 
 #if __LDBL_MANT_DIG__ == 64
 #define LEXP_BIAS (__LDBL_MAX_EXP__ + 2)

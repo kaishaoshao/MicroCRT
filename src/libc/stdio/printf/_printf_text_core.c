@@ -1,6 +1,55 @@
 /*
- * Shared helper for %c / %s text emission.
+ * Shared text formatting core for %c / %s family output.
  */
+
+#if PRINTF_CAP_WIDETOMB || PRINTF_CAP_MBTOWIDE
+#include <bits/types/mbstate_t.h>
+#endif
+
+#if PRINTF_CAP_WIDETOMB
+static size_t
+_mbslen(const wchar_t *s, size_t maxlen)
+{
+    mbstate_t ps = { 0 };
+    wchar_t c;
+    char tmp[MB_LEN_MAX];
+    size_t len = 0;
+
+    while (len < maxlen && (c = *s++) != L'\0') {
+        int clen = __WCTOMB(tmp, c, &ps);
+
+        if (clen == -1)
+            return (size_t) clen;
+        len += (size_t) clen;
+    }
+
+    return len;
+}
+#endif
+
+#if PRINTF_CAP_MBTOWIDE
+static size_t
+_wcslen(const char *s, size_t maxlen)
+{
+    mbstate_t ps = { 0 };
+    wchar_t c;
+    size_t len = 0;
+
+    while (len < maxlen && *s != '\0') {
+        size_t clen = mbrtowc(&c, s, MB_LEN_MAX, &ps);
+
+        if (c == L'\0')
+            break;
+        if (clen == (size_t)-1)
+            return clen;
+
+        s += clen;
+        ++len;
+    }
+
+    return len;
+}
+#endif
 
 static int
 __printf_emit_repeat(struct __printf_out *out, int *stream_len, unsigned ch, size_t count)
@@ -32,12 +81,16 @@ __printf_emit_narrow_span(struct __printf_out *out, int *stream_len, const char 
     return 0;
 }
 
-#ifdef _NEED_IO_WCHAR
+#if PRINTF_CAP_WCHAR
 static int
-__printf_emit_wide_span(struct __printf_out *out, int *stream_len, const wchar_t *wstr, size_t size,
-                        char *mb_buf)
+__printf_emit_wide_span(struct __printf_out *out, int *stream_len, const wchar_t *wstr, size_t size
+#if PRINTF_CAP_WIDETOMB
+                        ,
+                        char *mb_buf
+#endif
+)
 {
-#ifdef _NEED_IO_WIDETOMB
+#if PRINTF_CAP_WIDETOMB
     mbstate_t ps = { 0 };
 
     while (size) {
@@ -63,15 +116,11 @@ __printf_emit_wide_span(struct __printf_out *out, int *stream_len, const wchar_t
 
 static int
 __printf_emit_string_common(struct __printf_out *out, int *stream_len, uint16_t flags, int *width,
-                            size_t size, const char *pnt
-#ifdef _NEED_IO_WCHAR
-                            ,
-                            const wchar_t *wstr, char *mb_buf
-#endif
-)
+                            size_t size, const char *pnt, const wchar_t *wstr,
+                            struct __printf_text_runtime *text)
 {
-#ifndef _NEED_IO_SHRINK
-    if (!(flags & FL_LPAD)) {
+#if !PRINTF_CAP_SHRINK
+    if (!(flags & PRINTF_FLAG_LEFT_ADJ)) {
         if ((size_t) *width > size) {
             if (__printf_emit_repeat(out, stream_len, ' ', (size_t) *width - size) < 0)
                 return -1;
@@ -80,9 +129,11 @@ __printf_emit_string_common(struct __printf_out *out, int *stream_len, uint16_t 
     *width -= (int) size;
 #endif
 
-#ifdef _NEED_IO_WCHAR
     if (wstr)
-        return __printf_emit_wide_span(out, stream_len, wstr, size, mb_buf);
+        return __printf_emit_wide_span(out, stream_len, wstr, size
+#if PRINTF_CAP_WIDETOMB
+                                       , text->mb_buf
 #endif
+        );
     return __printf_emit_narrow_span(out, stream_len, pnt, size);
 }

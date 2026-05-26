@@ -5,23 +5,35 @@
 
 int __printf_core_default(struct __printf_out *out, const char *fmt, va_list ap);
 int __printf_core_integer(struct __printf_out *out, const char *fmt, va_list ap);
+int __printf_core_full(struct __printf_out *out, const char *fmt, va_list ap);
 
+/* FILE-backed route only: convert FILE into __printf_out, then call core. */
 static inline int
-__printf_vformat_stream(FILE *stream, const char *fmt, va_list ap)
+__printf_vformat_stream_core(FILE *stream, const char *fmt, va_list ap,
+                             int (*core)(struct __printf_out *out, const char *fmt, va_list ap))
 {
     struct __printf_out out;
 
     __printf_out_init_file(&out, stream);
-    return __printf_core_default(&out, fmt, ap);
+    return core(&out, fmt, ap);
+}
+
+static inline int
+__printf_vformat_stream(FILE *stream, const char *fmt, va_list ap)
+{
+    return __printf_vformat_stream_core(stream, fmt, ap, __printf_core_default);
 }
 
 static inline int
 __printf_vformat_stream_int(FILE *stream, const char *fmt, va_list ap)
 {
-    struct __printf_out out;
+    return __printf_vformat_stream_core(stream, fmt, ap, __printf_core_integer);
+}
 
-    __printf_out_init_file(&out, stream);
-    return __printf_core_integer(&out, fmt, ap);
+static inline int
+__printf_vformat_stream_full(FILE *stream, const char *fmt, va_list ap)
+{
+    return __printf_vformat_stream_core(stream, fmt, ap, __printf_core_full);
 }
 
 #endif

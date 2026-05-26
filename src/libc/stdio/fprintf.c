@@ -4,7 +4,7 @@
  * This file is the real home of the public fprintf() wrapper.
  */
 
-#include "printf/__printf_stream_api.h"
+#include <stdio.h>
 
 int
 fprintf(FILE *stream, const char *fmt, ...)
@@ -13,7 +13,7 @@ fprintf(FILE *stream, const char *fmt, ...)
     int i;
 
     va_start(ap, fmt);
-    i = __printf_vformat_stream(stream, fmt, ap);
+    i = vfprintf(stream, fmt, ap);
     va_end(ap);
 
     return i;

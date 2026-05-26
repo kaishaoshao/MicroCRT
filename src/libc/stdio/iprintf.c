@@ -47,8 +47,10 @@ int
 siprintf(char *s, const char *fmt, ...)
 {
     va_list ap;
+    int i;
+
     va_start(ap, fmt);
-    int i = __printf_vformat_cstr(s, fmt, ap, __printf_core_integer);
+    i = __printf_vformat_cstr(s, fmt, ap, __printf_core_integer);
     va_end(ap);
     return i;
 }

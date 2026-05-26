@@ -11,41 +11,41 @@ __printf_format_int_base(struct __printf_out *out, int *stream_len, uint16_t *fl
     int local_width = *width;
     int buf_len;
 
-    local_flags &= ~(FL_PLUS | FL_SPACE);
+    local_flags &= ~(PRINTF_FLAG_PLUS | PRINTF_FLAG_SPACE);
 
     if (x == 0)
-        local_flags &= ~FL_ALT;
+        local_flags &= ~PRINTF_FLAG_ALT_FORM;
 
-#ifndef _NEED_IO_SHRINK
-    if (x == 0 && (local_flags & FL_PREC) && local_prec == 0)
+#if !PRINTF_CAP_SHRINK
+    if (x == 0 && (local_flags & PRINTF_FLAG_PRECISION) && local_prec == 0)
         buf_len = 0;
     else
 #endif
         buf_len = __ultoa_invert(x, buf, base) - buf;
 
-#ifndef _NEED_IO_SHRINK
+#if !PRINTF_CAP_SHRINK
     {
         int len = buf_len;
 
-        if (local_flags & FL_PREC) {
-            local_flags &= ~FL_ZFILL;
+        if (local_flags & PRINTF_FLAG_PRECISION) {
+            local_flags &= ~PRINTF_FLAG_ZERO_FILL;
 
             if (len < local_prec) {
                 len = local_prec;
 
                 if (prefix_c == '\0')
-                    local_flags &= ~FL_ALT;
+                    local_flags &= ~PRINTF_FLAG_ALT_FORM;
             }
         }
 
-        if (local_flags & FL_ALT) {
+        if (local_flags & PRINTF_FLAG_ALT_FORM) {
             len += 1;
             if (prefix_c != '\0')
                 len += 1;
         }
 
-        if (!(local_flags & FL_LPAD)) {
-            if (local_flags & FL_ZFILL) {
+        if (!(local_flags & PRINTF_FLAG_LEFT_ADJ)) {
+            if (local_flags & PRINTF_FLAG_ZERO_FILL) {
                 local_prec = buf_len;
                 if (len < local_width) {
                     local_prec += local_width - len;
@@ -61,7 +61,7 @@ __printf_format_int_base(struct __printf_out *out, int *stream_len, uint16_t *fl
 
         local_width -= len;
 
-        if (local_flags & FL_ALT) {
+        if (local_flags & PRINTF_FLAG_ALT_FORM) {
             if (__printf_emit(out, stream_len, '0') < 0)
                 return -1;
             if (prefix_c != '\0' && __printf_emit(out, stream_len, prefix_c) < 0)
@@ -75,7 +75,7 @@ __printf_format_int_base(struct __printf_out *out, int *stream_len, uint16_t *fl
         }
     }
 #else
-    if (local_flags & FL_ALT) {
+    if (local_flags & PRINTF_FLAG_ALT_FORM) {
         if (__printf_emit(out, stream_len, '0') < 0)
             return -1;
         if (prefix_c != '\0' && __printf_emit(out, stream_len, prefix_c) < 0)

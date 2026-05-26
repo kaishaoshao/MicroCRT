@@ -174,6 +174,13 @@ __printf_out_finish(struct __printf_out *out, int stream_len)
     return stream_len;
 }
 
+static inline int
+__printf_out_finish_failed(struct __printf_out *out)
+{
+    __printf_out_fail(out);
+    return __printf_out_finish(out, -1);
+}
+
 static inline void
 __printf_cstr_finish(struct __printf_cstr_out *buf)
 {

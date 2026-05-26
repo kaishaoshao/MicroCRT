@@ -1,13 +1,8 @@
 #ifndef _MICROCRT_PRINTF_FLOAT_SUPPORT_H_
 #define _MICROCRT_PRINTF_FLOAT_SUPPORT_H_
 
-#include "printf_core_private.h"
-
-extern const char __match_inf[];
-extern const char __match_inity[];
-extern const char __match_nan[];
-
-bool __matchcaseprefix(const char *input, const char *pattern);
+#include <stdbool.h>
+#include <stdint.h>
 
 #if __SIZEOF_DOUBLE__ == 8
 #define FLOAT64      double
@@ -165,7 +160,7 @@ static inline unsigned int
 digit_to_val(unsigned int c)
 {
     if (c > '9')
-        c = TOLOWER(c - 1) + ('0' - 'a' + 11);
+        c = ((c - 1) | ('a' - 'A')) + ('0' - 'a' + 11);
     c -= '0';
     return c;
 }

@@ -53,9 +53,7 @@ MicroCRT/src/libc/stdio/legacy/
 
 从主工程当前正在进行的 `vfprintf` 收敛工作中，迁入了：
 
-* `printf_core_body.inc`
-* `printf_core_parser.inc`
-* `printf_core_dispatch.inc`
+* `printf_core.inc`
 
 这些文件现在放在：
 
@@ -66,7 +64,7 @@ MicroCRT/src/libc/stdio/printf/
 用途是：
 
 * 作为后续 `MicroCRT printf` 的单模板 core 起点
-* 明确主循环、parser、dispatch 三层边界
+* 明确主循环以及 parser/dispatch 在模板内的收口边界
 
 ## 4. 外部参考源码来源
 

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <wchar.h>
 
 static int failures;
 
@@ -76,10 +77,35 @@ iformat_to_buf(char *buf, const char *fmt, ...)
     return ret;
 }
 
+static int
+vformat_file(FILE *stream, const char *fmt, ...)
+{
+    int ret;
+    va_list ap;
+
+    va_start(ap, fmt);
+    ret = vfprintf(stream, fmt, ap);
+    va_end(ap);
+    return ret;
+}
+
+static int
+full_format_to_buf(char *buf, size_t size, const char *fmt, ...)
+{
+    int ret;
+    va_list ap;
+
+    va_start(ap, fmt);
+    ret = vsnprintf_full(buf, size, fmt, ap);
+    va_end(ap);
+    return ret;
+}
+
 int
 main(void)
 {
     char buf[128];
+    static const wchar_t wide_word[] = L"Hi";
     long l = 1234567890L;
     long long ll = -1234567890123LL;
     struct test_file tf = {
@@ -100,6 +126,14 @@ main(void)
     check_str("dynamic width precision", "[  0012]", buf);
     check_int("dynamic width precision ret", 8, ret);
 
+    ret = snprintf(buf, sizeof(buf), "%2$d/%1$d", 7, 12);
+    check_str("positional reorder", "12/7", buf);
+    check_int("positional reorder ret", 4, ret);
+
+    ret = snprintf(buf, sizeof(buf), "[%2$*1$d]", 6, 12);
+    check_str("positional width", "[    12]", buf);
+    check_int("positional width ret", 8, ret);
+
     ret = snprintf(buf, sizeof(buf), "[%+d][% d][%#x][%#o]", 12, 12, 0x2a, 012);
     check_str("flags", "[+12][ 12][0x2a][012]", buf);
     check_int("flags ret", 21, ret);
@@ -119,6 +153,18 @@ main(void)
     check_str("vsnprintf helper", "tag:-7:002a", buf);
     check_int("vsnprintf helper ret", 11, ret);
 
+    ret = format_to_buf(buf, sizeof(buf), "<%s>", (char *) NULL);
+    check_str("vsnprintf null string", "<(null)>", buf);
+    check_int("vsnprintf null string ret", 8, ret);
+
+    ret = snprintf(buf, sizeof(buf), "%lc:%ls", L'A', wide_word);
+    check_str("wide char string", "A:Hi", buf);
+    check_int("wide char string ret", 4, ret);
+
+    ret = snprintf(buf, sizeof(buf), "<%ls>", (wchar_t *) NULL);
+    check_str("wide null string", "<(null)>", buf);
+    check_int("wide null string ret", 8, ret);
+
     ret = sprintf(buf, "%-6s/%04d", "xy", 9);
     check_str("sprintf", "xy    /0009", buf);
     check_int("sprintf ret", 11, ret);
@@ -131,9 +177,27 @@ main(void)
     check_str("vsiprintf helper", "00000012/0x2a", buf);
     check_int("vsiprintf helper ret", 13, ret);
 
+    ret = iformat_to_buf(buf, "[%f]", 1.5);
+    check_str("vsiprintf float placeholder", "[*float*]", buf);
+    check_int("vsiprintf float placeholder ret", 9, ret);
+
+    ret = snprintf_full(buf, sizeof(buf), "%.2f/%lld", 12.345, 1234567890123LL);
+    check_str("snprintf_full", "12.35/1234567890123", buf);
+    check_int("snprintf_full ret", 19, ret);
+
+    ret = full_format_to_buf(buf, sizeof(buf), "%#.3a", 12.0);
+    check_str("vsnprintf_full helper", "0x1.800p+3", buf);
+    check_int("vsnprintf_full helper ret", 10, ret);
+
     ret = fprintf(&tf.file, "xy:%d", 7);
     check_str("fprintf custom stream", "xy:7", tf.buf);
     check_int("fprintf custom stream ret", 4, ret);
+
+    tf.pos = tf.buf;
+    tf.buf[0] = '\0';
+    ret = vformat_file(&tf.file, "[%04x]", 0x2a);
+    check_str("vfprintf custom stream", "[002a]", tf.buf);
+    check_int("vfprintf custom stream ret", 6, ret);
     check_int("auto flush default off", 0, tf.flush_count);
 
     ret = fflush(&tf.file);

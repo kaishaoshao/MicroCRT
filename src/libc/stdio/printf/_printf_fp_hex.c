@@ -7,7 +7,7 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
                        int *width, unsigned char case_convert, va_list ap, struct dtoa *dtoa)
 {
 #define TOCASE_LOCAL(ch) ((ch) - case_convert)
-    uint16_t local_flags = *flags | FL_FLTEXP | FL_FLTHEX;
+    uint16_t local_flags = *flags | PRINTF_FLAG_FLOAT_EXP | PRINTF_FLAG_FLOAT_HEX;
     int local_prec = *prec;
     int local_width = *width;
     uint8_t sign;
@@ -15,12 +15,12 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
     int exp;
     int n;
 
-#ifdef _NEED_IO_LONG_DOUBLE
-    if ((local_flags & (FL_LONG | FL_REPD_TYPE)) == (FL_LONG | FL_REPD_TYPE)) {
+#if PRINTF_CAP_LONG_DOUBLE
+    if ((local_flags & (PRINTF_FLAG_LONG | PRINTF_FLAG_REPEAT_TYPE)) == (PRINTF_FLAG_LONG | PRINTF_FLAG_REPEAT_TYPE)) {
         PRINTF_LONG_DOUBLE_TYPE fval;
 
         fval = PRINTF_LONG_DOUBLE_ARG(ap);
-        if (!(local_flags & FL_PREC))
+        if (!(local_flags & PRINTF_FLAG_PRECISION))
             local_prec = -1;
         local_prec = __lfloat_x_engine(fval, dtoa, local_prec, case_convert);
         ndigs = local_prec + 1;
@@ -31,7 +31,7 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
         FLOAT_UINT fval;
 
         fval = PRINTF_FLOAT_ARG(ap);
-        if (!(local_flags & FL_PREC))
+        if (!(local_flags & PRINTF_FLAG_PRECISION))
             local_prec = -1;
 
         ndigs = 1 + __float_x_engine(fval, dtoa, local_prec, case_convert);
@@ -43,9 +43,9 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
     sign = 0;
     if (dtoa->flags & DTOA_MINUS)
         sign = '-';
-    else if (local_flags & FL_PLUS)
+    else if (local_flags & PRINTF_FLAG_PLUS)
         sign = '+';
-    else if (local_flags & FL_SPACE)
+    else if (local_flags & PRINTF_FLAG_SPACE)
         sign = ' ';
 
     if (dtoa->flags & (DTOA_NAN | DTOA_INF)) {
@@ -54,7 +54,7 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
         ndigs = sign ? 4 : 3;
         if (local_width > ndigs) {
             local_width -= ndigs;
-            if (!(local_flags & FL_LPAD)) {
+            if (!(local_flags & PRINTF_FLAG_LEFT_ADJ)) {
                 do {
                     if (__printf_emit(out, stream_len, ' ') < 0)
                         return -1;
@@ -77,12 +77,12 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
             n += 1;
         if (local_prec)
             n += local_prec + 1;
-        else if (local_flags & FL_ALT)
+        else if (local_flags & PRINTF_FLAG_ALT_FORM)
             n += 1;
 
         local_width = local_width > n ? local_width - n : 0;
 
-        if (!(local_flags & (FL_LPAD | FL_ZFILL))) {
+        if (!(local_flags & (PRINTF_FLAG_LEFT_ADJ | PRINTF_FLAG_ZERO_FILL))) {
             while (local_width) {
                 if (__printf_emit(out, stream_len, ' ') < 0)
                     return -1;
@@ -97,7 +97,7 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
         if (__printf_emit(out, stream_len, (unsigned char) TOCASE_LOCAL('x')) < 0)
             return -1;
 
-        if (!(local_flags & FL_LPAD)) {
+        if (!(local_flags & PRINTF_FLAG_LEFT_ADJ)) {
             while (local_width) {
                 if (__printf_emit(out, stream_len, '0') < 0)
                     return -1;
@@ -118,7 +118,7 @@ __printf_format_fp_hex(struct __printf_out *out, int *stream_len, uint16_t *flag
                     < 0)
                     return -1;
             }
-        } else if (local_flags & FL_ALT) {
+        } else if (local_flags & PRINTF_FLAG_ALT_FORM) {
             if (__printf_emit(out, stream_len, '.') < 0)
                 return -1;
         }

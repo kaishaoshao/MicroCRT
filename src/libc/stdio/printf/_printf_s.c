@@ -3,48 +3,35 @@
  */
 
 static int
-__printf_entry_s(struct __printf_out *out, int *stream_len, uint16_t flags, int *prec, int *width,
-                 const char *pnt
-#ifdef _NEED_IO_WCHAR
-                 ,
-                 const wchar_t *wstr, char *mb_buf
-#endif
-)
+__printf_dispatch_string(struct __printf_out *out, int *stream_len, uint16_t flags, int *prec,
+                         int *width, va_list ap, const char **msg_out,
+                         struct __printf_text_runtime *text)
 {
-    size_t size;
+    if (__printf_use_wchar(flags)) {
+        const wchar_t *wstr = va_arg(ap, wchar_t *);
 
-#ifdef _NEED_IO_WCHAR
-    if (wstr) {
-        size = (flags & FL_PREC) ? (size_t) *prec : SIZE_MAX;
-#ifdef _NEED_IO_WIDETOMB
-        size = _mbslen(wstr, size);
-        if (size == (size_t) -1)
-            return -1;
+        if (!wstr) {
+#if PRINTF_CAP_SECURE
+            *msg_out = "arg corresponding to '%s' is null";
+            return 1;
 #else
-        size = wcsnlen(wstr, size);
+            static const wchar_t null_wstr[] = L"(null)";
+            wstr = null_wstr;
 #endif
-        return __printf_emit_string_common(out, stream_len, flags, width, size, NULL, wstr, mb_buf);
+        }
+        return __printf_format_string(out, stream_len, flags, prec, width, NULL, wstr, text);
     }
-#endif
+    {
+        const char *pnt = va_arg(ap, char *);
 
-#ifdef _NEED_IO_SHRINK
-    while (*pnt) {
-        if (__printf_emit(out, stream_len, (unsigned char) *pnt++) < 0)
-            return -1;
+        if (!pnt) {
+#if PRINTF_CAP_SECURE
+            *msg_out = "arg corresponding to '%s' is null";
+            return 1;
+#else
+            pnt = "(null)";
+#endif
+        }
+        return __printf_format_string(out, stream_len, flags, prec, width, pnt, NULL, text);
     }
-    return 0;
-#else
-    size = (flags & FL_PREC) ? (size_t) *prec : SIZE_MAX;
-#ifdef _NEED_IO_MBTOWIDE
-    size = _wcslen(pnt, size);
-#else
-    size = strnlen(pnt, size);
-#endif
-    return __printf_emit_string_common(out, stream_len, flags, width, size, pnt
-#ifdef _NEED_IO_WCHAR
-                                       ,
-                                       NULL, mb_buf
-#endif
-    );
-#endif
 }

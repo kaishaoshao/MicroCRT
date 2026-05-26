@@ -193,15 +193,15 @@ memory-backed FILE bridge
 `vfprintf.c` 同时承担了：
 
 1. variant 选择
-   * `PRINTF_VARIANT`
-   * `PRINTF_NAME`
+   * 当时是 `PRINTF_VARIANT`
+   * 当时是 `PRINTF_NAME`
 
 2. 功能宏展开
-   * `_NEED_IO_LONG_LONG`
-   * `_NEED_IO_FLOAT`
-   * `_NEED_IO_DOUBLE`
-   * `_NEED_IO_WCHAR`
-   * `_NEED_IO_POS_ARGS`
+   * 当时主要是 `_NEED_IO_LONG_LONG`
+   * 当时主要是 `_NEED_IO_FLOAT`
+   * 当时主要是 `_NEED_IO_DOUBLE`
+   * 当时主要是 `_NEED_IO_WCHAR`
+   * 当时主要是 `_NEED_IO_POS_ARGS`
 
 3. parser
    * flags
@@ -427,6 +427,125 @@ _printf_a
 
 因此现在不能再把它理解成“还没开始设计”。
 现在的问题不是“有没有框架”，而是“这个过渡框架要怎样稳定、怎样继续演进到最终目标”。
+
+### 3.1 截至 2026-05-25 的已落地结构
+
+这一小节只描述已经落到代码里的事实，用来和后面“建议收敛成什么样”区分开。
+
+当前默认主链已经固定为：
+
+```text
+printf
+  -> vprintf
+  -> vfprintf
+  -> __printf_vformat_stream
+  -> __printf_core_default
+```
+
+`fprintf` 也已经统一到：
+
+```text
+fprintf
+  -> vfprintf
+  -> __printf_vformat_stream
+  -> __printf_core_default
+```
+
+当前 core 模板已经稳定为：
+
+```text
+printf_core.inc
+```
+
+其中现状是：
+
+* `printf_core.inc`
+  已经把 entry/local state、`__printf_out_begin(out)`、parse loop、dispatch、tail、ret/fail/secure error 收在一个模板里
+* `_printf_parser.c`
+  已经承接：
+  `__printf_parse_flag_char`
+  `__printf_parse_number_char`
+  `__printf_parse_dynamic_field`
+  `__printf_parse_precision_marker`
+  `__printf_parse_size_modifier`
+  `__printf_parse_positional_char`
+* `_printf_conversion_dispatch.c`
+  统一承接 conversion classifier，核心模板里直接调
+  `__printf_dispatch_conversion(...)`
+
+当前装配层也已经比文档前半段描述的旧过渡态再收敛了一步：
+
+```text
+printf_core_impl.inc
+  -> printf_config.h
+  -> parser/text helpers
+  -> integer helpers
+  -> float helpers
+  -> conversion dispatcher
+```
+
+这意味着当前代码的真实状态已经是：
+
+* 配置集中到 `printf_config.h`
+* parser/text/helper 直接装配一组
+* integer/helper/entry 直接装配一组
+* float/helper/entry 直接装配一组
+* final dispatch 单独一组
+
+同时，宏入口也已经比旧过渡态更集中：
+
+* profile 选择正在以 `PRINTF_CORE_PROFILE` / `PRINTF_CORE_SYMBOL` 为主
+* capability 选择正在以 `PRINTF_CAP_*` 为主
+* 旧 `PRINTF_VARIANT` / `PRINTF_NAME` / `_NEED_IO_*` 仍有兼容映射，但不应再继续扩散到新代码
+
+也就是说，当前仓库虽然仍然不是对象级独立裁剪结构，但已经不再是“一个 support 文件把所有 `_printf_*` 平铺到底”的最初过渡形态。
+
+结合 `arm-armlib-printf-analysis.md` 的对象层证据，当前代码和 Arm 的真正差异已经可以说得很具体：
+
+1. 我们已经有“多 core 壳 + shared helper”这半边。
+2. 我们还没有 Arm 那种“per-specifier 薄 entry object”这半边。
+3. 当前代码已经把 integer/float family 从 consolidated dispatcher 继续拆到了 per-specifier entry。
+
+所以如果目标是“模仿 Arm 的对象组织”，下一步的正确方向是：
+
+```text
+_printf_d.c
+_printf_u.c
+_printf_o.c
+_printf_x.c
+_printf_p.c
+
+_printf_f.c
+_printf_e.c
+_printf_g.c
+_printf_a.c
+```
+
+而 shared helper 继续保持：
+
+```text
+_printf_char_core.c
+_printf_string_core.c
+_printf_int_dec.c
+_printf_int_base.c
+_printf_pointer.c
+_printf_fp_dec.c
+_printf_fp_hex.c
+```
+
+这一步的意义不是“看起来更像 Arm”，而是把对象边界进一步压成：
+
+```text
+core shell
+  -> specifier entry
+      -> shared helper
+```
+
+这样一来：
+
+* `%x` 不再跟 `%d/%u/%o/%p` 绑在一个 family-dispatch 对象里
+* `%a` 不再跟 `%f/%e/%g` 绑在一个 family-dispatch 对象里
+* 后续如果做更细粒度裁剪或链接选择，边界会更接近 Arm 已验证的对象层模式
 
 ---
 
@@ -1108,6 +1227,7 @@ src/libc/stdio/printf/
   helper/
     _printf_char_core.c
     _printf_string_core.c
+    _printf_text_core.c
     _printf_int_dec.c
     _printf_int_hex.c
     _printf_int_oct.c
