@@ -40,10 +40,8 @@
 
 struct __printf_spec {
     uint16_t flags;
-#if !PRINTF_CAP_SHRINK
     int width;
     int prec;
-#endif
     int argno;
 };
 
@@ -51,10 +49,8 @@ static inline void
 __printf_spec_reset(struct __printf_spec *spec)
 {
     spec->flags = 0;
-#if !PRINTF_CAP_SHRINK
     spec->width = 0;
     spec->prec = 0;
-#endif
     spec->argno = 0;
 }
 
@@ -70,6 +66,34 @@ struct __printf_text_runtime {
     wchar_t *wbuf;
 #if PRINTF_CAP_WIDETOMB
     char *mb_buf;
+#endif
+};
+
+struct __printf_core_runtime {
+    char buf[PRINTF_BUF_SIZE];
+#if PRINTF_CAP_WCHAR
+    wchar_t wbuf[PRINTF_BUF_SIZE / 2];
+#endif
+#if PRINTF_CAP_WIDETOMB
+    char mb[MB_LEN_MAX];
+#endif
+};
+
+typedef struct {
+    va_list ap;
+} my_va_list;
+
+#if PRINTF_CAP_POSITIONAL
+static void skip_to_arg(const CHAR *fmt, my_va_list *my_ap, int argno);
+#endif
+
+struct __printf_core_context {
+    int stream_len;
+    const char *msg;
+    struct __printf_text_runtime text;
+#if PRINTF_CAP_POSITIONAL
+    my_va_list positional;
+    const CHAR *fmt_orig;
 #endif
 };
 
@@ -127,19 +151,92 @@ __printf_use_wchar(uint16_t flags)
     return __printf_cap_wchar_enabled() && ((flags & PRINTF_FLAG_LONG) != 0);
 }
 
-typedef struct {
-    va_list ap;
-} my_va_list;
+static inline bool
+__printf_spec_has_positional_arg(const struct __printf_spec *spec)
+{
+    return __printf_cap_positional_enabled() && spec->argno != 0;
+}
+
+static inline bool
+__printf_conversion_is_float_family(unsigned char conv)
+{
+    unsigned char lower = TOLOWER(conv);
+
+    if (lower >= 'e' && lower <= 'g')
+        return true;
+    return __printf_cap_c99_formats_enabled() && lower == 'a';
+}
+
+static inline struct __printf_text_runtime
+__printf_make_text_runtime(struct __printf_core_runtime *runtime)
+{
+    struct __printf_text_runtime text = {
+        .buf = runtime->buf,
+#if PRINTF_CAP_WCHAR
+        .wbuf = runtime->wbuf,
+#else
+        .wbuf = NULL,
+#endif
+#if PRINTF_CAP_WIDETOMB
+        .mb_buf = runtime->mb,
+#endif
+    };
+
+    return text;
+}
+
+static inline void
+__printf_core_context_init(struct __printf_core_context *ctx, struct __printf_core_runtime *runtime,
+                           const CHAR *fmt)
+{
+    ctx->stream_len = 0;
+    ctx->msg = NULL;
+    ctx->text = __printf_make_text_runtime(runtime);
+#if PRINTF_CAP_POSITIONAL
+    ctx->fmt_orig = fmt;
+#endif
+}
+
+static inline void
+__printf_positional_begin(struct __printf_core_context *ctx, va_list ap_orig)
+{
+#if PRINTF_CAP_POSITIONAL
+    va_copy(ctx->positional.ap, ap_orig);
+#else
+    (void) ctx;
+    (void) ap_orig;
+#endif
+}
+
+static inline void
+__printf_positional_end(struct __printf_core_context *ctx)
+{
+#if PRINTF_CAP_POSITIONAL
+    va_end(ctx->positional.ap);
+#else
+    (void) ctx;
+#endif
+}
+
+static inline void
+__printf_positional_rewind_to_arg(struct __printf_core_context *ctx, va_list ap_orig, int argno)
+{
+#if PRINTF_CAP_POSITIONAL
+    va_end(ctx->positional.ap);
+    va_copy(ctx->positional.ap, ap_orig);
+    skip_to_arg(ctx->fmt_orig, &ctx->positional, argno);
+#else
+    (void) ctx;
+    (void) ap_orig;
+    (void) argno;
+#endif
+}
 
 static inline void
 __printf_spec_reset_fields(struct __printf_spec *spec)
 {
-#if !PRINTF_CAP_SHRINK
     spec->width = 0;
     spec->prec = 0;
-#else
-    (void) spec;
-#endif
 }
 
 static inline void
@@ -152,7 +249,9 @@ __printf_spec_reset_for_argno(struct __printf_spec *spec)
 static inline void
 __printf_spec_accumulate_digit(struct __printf_spec *spec, unsigned c)
 {
-#if !PRINTF_CAP_SHRINK
+    if (__printf_cap_shrink_enabled())
+        return;
+
     c -= '0';
     if (spec->flags & PRINTF_FLAG_PRECISION)
         spec->prec = 10 * spec->prec + (int) c;
@@ -160,30 +259,28 @@ __printf_spec_accumulate_digit(struct __printf_spec *spec, unsigned c)
         spec->width = 10 * spec->width + (int) c;
         spec->flags |= PRINTF_FLAG_WIDTH;
     }
-#else
-    (void) spec;
-    (void) c;
-#endif
 }
 
 static inline void
 __printf_spec_read_dynamic_field(struct __printf_spec *spec, va_list ap)
 {
-#if PRINTF_CAP_SHRINK
-    (void) spec;
-    (void) va_arg(ap, int);
-#else
+    if (__printf_cap_shrink_enabled()) {
+        (void) va_arg(ap, int);
+        return;
+    }
+
     if (spec->flags & PRINTF_FLAG_PRECISION)
         spec->prec = va_arg(ap, int);
     else
         spec->width = va_arg(ap, int);
-#endif
 }
 
 static inline void
 __printf_spec_normalize_fields(struct __printf_spec *spec)
 {
-#if !PRINTF_CAP_SHRINK
+    if (__printf_cap_shrink_enabled())
+        return;
+
     if (spec->prec < 0) {
         spec->prec = 0;
         spec->flags &= ~PRINTF_FLAG_PRECISION;
@@ -193,9 +290,6 @@ __printf_spec_normalize_fields(struct __printf_spec *spec)
         spec->width = -spec->width;
         spec->flags |= PRINTF_FLAG_LEFT_ADJ;
     }
-#else
-    (void) spec;
-#endif
 }
 
 #ifdef PRINTF_FLAG_LONG
@@ -253,10 +347,11 @@ __printf_apply_size_modifier(uint16_t flags, unsigned c)
 }
 #endif
 
-#if PRINTF_CAP_SECURE
 static inline const char *
 __printf_validate_core_inputs(struct __printf_out *out, const char *fmt)
 {
+    if (!__printf_cap_secure_enabled())
+        return NULL;
     if (out == NULL)
         return "output sink is null";
     if (fmt == NULL)
@@ -267,12 +362,17 @@ __printf_validate_core_inputs(struct __printf_out *out, const char *fmt)
 static inline int
 __printf_handle_core_error(struct __printf_out *out, const char *msg)
 {
+    if (!__printf_cap_secure_enabled())
+        return -1;
+#if PRINTF_CAP_SECURE
     if (__cur_handler != NULL)
         __cur_handler(msg, NULL, -1);
+#else
+    (void) msg;
+#endif
     if (out != NULL)
         __printf_out_fail(out);
     return -1;
 }
-#endif
 
 #endif

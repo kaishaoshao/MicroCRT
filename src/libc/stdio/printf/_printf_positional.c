@@ -90,22 +90,16 @@ skip_to_arg(const CHAR *fmt_orig, my_va_list *ap, int target_argno)
             break;
 
         if (argno == current_argno) {
-            if ((TOLOWER(c) >= 'e' && TOLOWER(c) <= 'g')
-#ifdef PRINTF_CAP_C99_FORMATS
-                || TOLOWER(c) == 'a'
-#endif
-            ) {
-                SKIP_FLOAT_ARG(flags, ap->ap);
+            if (__printf_conversion_is_float_family((unsigned char) c)) {
+                __printf_skip_float_arg(flags, ap->ap);
             } else if (c == 'c') {
                 (void) va_arg(ap->ap, int);
             } else if (c == 's') {
                 (void) va_arg(ap->ap, char *);
             } else if (c == 'd' || c == 'i') {
-                ultoa_signed_t x_s;
-                arg_to_signed(ap->ap, flags, x_s);
+                (void) __printf_read_signed_arg(ap->ap, flags);
             } else {
-                ultoa_unsigned_t x;
-                arg_to_unsigned(ap->ap, flags, x);
+                (void) __printf_read_unsigned_arg(ap->ap, flags);
             }
 
             ++current_argno;

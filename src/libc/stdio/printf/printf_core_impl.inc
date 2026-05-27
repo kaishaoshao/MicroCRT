@@ -49,8 +49,21 @@
 /* Stage 1: select variant capabilities, flags and scratch sizing. */
 #include "printf_config.h"
 
-/* Stage 2: assemble shared support helpers for this variant. */
+/*
+ * Stage 2: assemble the helper graph for this configured core.
+ *
+ * Assembly order matters:
+ * 1. shared primitives
+ * 2. parser/text families
+ * 3. integer family
+ * 4. float family
+ * 5. final conversion dispatcher
+ */
+
+/* Shared primitive used by integer backends. */
 #include "ultoa_invert.c"
+
+/* Parser and text families. */
 #if PRINTF_CAP_POSITIONAL
 #include "_printf_positional.c"
 #endif
@@ -64,6 +77,8 @@
 #include "_printf_c.c"
 #include "_printf_s.c"
 #include "_printf_n.c"
+
+/* Integer family: backends first, then thin specifier entries. */
 #include "_printf_d.c"
 #include "_printf_u.c"
 #include "_printf_o.c"
@@ -72,6 +87,8 @@
 #if PRINTF_CAP_BINARY
 #include "_printf_b.c"
 #endif
+
+/* Float family: backends first, then thin specifier entries. */
 #if IO_VARIANT_IS_FLOAT(PRINTF_CORE_PROFILE)
 #include "_printf_fp_dec.c"
 #include "_printf_fp_hex.c"
@@ -82,6 +99,8 @@
 #include "_printf_a.c"
 #endif
 #endif
+
+/* Final per-conversion router. */
 #include "_printf_conversion_dispatch.c"
 
 /* Stage 3: compile the common core template with the chosen support set. */

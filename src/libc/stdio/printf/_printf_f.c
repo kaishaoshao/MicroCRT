@@ -2,7 +2,7 @@
  * Entry: %f
  */
 
-static int
+static inline int
 __printf_entry_float_f(struct __printf_out *out, int *stream_len, uint16_t *flags, int *prec,
                        int *width, unsigned char conv, va_list ap, struct dtoa *dtoa)
 {

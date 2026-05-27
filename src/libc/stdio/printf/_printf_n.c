@@ -7,16 +7,17 @@ static int __printf_entry_n(uint16_t flags, va_list ap, int stream_len);
 static int
 __printf_dispatch_percent_n(uint16_t flags, va_list ap, int stream_len, const char **msg_out)
 {
-#if PRINTF_CAP_SECURE
-    (void) flags;
-    (void) ap;
-    (void) stream_len;
-    *msg_out = "format string contains percent-n";
-    return 1;
-#else
+    if (__printf_cap_secure_enabled()) {
+        (void) flags;
+        (void) ap;
+        (void) stream_len;
+        if (msg_out != NULL)
+            *msg_out = "format string contains percent-n";
+        return 1;
+    }
+
     (void) msg_out;
     return __printf_entry_n(flags, ap, stream_len);
-#endif
 }
 
 static int

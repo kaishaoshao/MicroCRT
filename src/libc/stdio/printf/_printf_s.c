@@ -11,13 +11,13 @@ __printf_dispatch_string(struct __printf_out *out, int *stream_len, uint16_t fla
         const wchar_t *wstr = va_arg(ap, wchar_t *);
 
         if (!wstr) {
-#if PRINTF_CAP_SECURE
-            *msg_out = "arg corresponding to '%s' is null";
-            return 1;
-#else
+            if (__printf_cap_secure_enabled()) {
+                if (msg_out != NULL)
+                    *msg_out = "arg corresponding to '%s' is null";
+                return 1;
+            }
             static const wchar_t null_wstr[] = L"(null)";
             wstr = null_wstr;
-#endif
         }
         return __printf_format_string(out, stream_len, flags, prec, width, NULL, wstr, text);
     }
@@ -25,12 +25,12 @@ __printf_dispatch_string(struct __printf_out *out, int *stream_len, uint16_t fla
         const char *pnt = va_arg(ap, char *);
 
         if (!pnt) {
-#if PRINTF_CAP_SECURE
-            *msg_out = "arg corresponding to '%s' is null";
-            return 1;
-#else
+            if (__printf_cap_secure_enabled()) {
+                if (msg_out != NULL)
+                    *msg_out = "arg corresponding to '%s' is null";
+                return 1;
+            }
             pnt = "(null)";
-#endif
         }
         return __printf_format_string(out, stream_len, flags, prec, width, pnt, NULL, text);
     }

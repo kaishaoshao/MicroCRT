@@ -18,16 +18,6 @@ __printf_emit_unknown_conversion(struct __printf_out *out, int *stream_len, unsi
 }
 
 static int
-__printf_conversion_is_float_family(unsigned char conv)
-{
-    unsigned char lower = TOLOWER(conv);
-
-    if (lower >= 'e' && lower <= 'g')
-        return 1;
-    return __printf_cap_c99_formats_enabled() && lower == 'a';
-}
-
-static int
 __printf_dispatch_float_conversion(struct __printf_out *out, int *stream_len, uint16_t *flags,
                                    int *prec, int *width, unsigned char conv, va_list ap,
                                    struct __printf_text_runtime *text
@@ -57,7 +47,7 @@ __printf_dispatch_float_conversion(struct __printf_out *out, int *stream_len, ui
         return 0;
     }
 #else
-    SKIP_FLOAT_ARG(*flags, ap);
+    __printf_skip_float_arg(*flags, ap);
     if (__printf_emit_string_common(out, stream_len, *flags, width, sizeof("*float*") - 1,
                                     "*float*", NULL, text)
         < 0)
@@ -80,11 +70,7 @@ __printf_dispatch_float_conversion(struct __printf_out *out, int *stream_len, ui
 static int
 __printf_dispatch_string_conversion(struct __printf_out *out, int *stream_len, uint16_t flags,
                                     int *prec, int *width, va_list ap,
-#if PRINTF_CAP_SECURE
                                     const char **msg_out,
-#else
-                                    const char **msg_out,
-#endif
                                     struct __printf_text_runtime *text)
 {
     int dispatch_ret = __printf_dispatch_string(out, stream_len, flags, prec, width, ap,
@@ -99,11 +85,7 @@ __printf_dispatch_string_conversion(struct __printf_out *out, int *stream_len, u
 
 static int
 __printf_dispatch_percent_n_conversion(uint16_t flags, va_list ap, int stream_len,
-#if PRINTF_CAP_SECURE
                                        const char **msg_out
-#else
-                                       const char **msg_out
-#endif
 )
 {
     int dispatch_ret;
@@ -171,10 +153,8 @@ __printf_dispatch_conversion(struct __printf_out *out, int *stream_len, uint16_t
                              ,
                              struct dtoa *dtoa
 #endif
-#if PRINTF_CAP_SECURE
                              ,
                              const char **msg_out
-#endif
 )
 {
     int dispatch_status;
@@ -196,22 +176,11 @@ __printf_dispatch_conversion(struct __printf_out *out, int *stream_len, uint16_t
     }
 
     if (conv == 's')
-        return __printf_dispatch_string_conversion(out, stream_len, *flags, prec, width, ap,
-#if PRINTF_CAP_SECURE
-                                                   msg_out,
-#else
-                                                   NULL,
-#endif
+        return __printf_dispatch_string_conversion(out, stream_len, *flags, prec, width, ap, msg_out,
                                                    text);
 
     if (conv == 'n')
-        return __printf_dispatch_percent_n_conversion(*flags, ap, *stream_len,
-#if PRINTF_CAP_SECURE
-                                                      msg_out
-#else
-                                                      NULL
-#endif
-        );
+        return __printf_dispatch_percent_n_conversion(*flags, ap, *stream_len, msg_out);
 
     return __printf_dispatch_integer_conversion(out, stream_len, flags, prec, width, conv, ap,
                                                 text->buf);

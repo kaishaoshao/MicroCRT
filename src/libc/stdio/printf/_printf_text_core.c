@@ -51,7 +51,7 @@ _wcslen(const char *s, size_t maxlen)
 }
 #endif
 
-static int
+static inline int
 __printf_emit_repeat(struct __printf_out *out, int *stream_len, unsigned ch, size_t count)
 {
     while (count--) {
@@ -74,11 +74,7 @@ __printf_emit_width_tail(struct __printf_out *out, int *stream_len, int *width)
 static int
 __printf_emit_narrow_span(struct __printf_out *out, int *stream_len, const char *p, size_t size)
 {
-    while (size--) {
-        if (__printf_emit(out, stream_len, (unsigned char) *p++) < 0)
-            return -1;
-    }
-    return 0;
+    return __printf_out_write(out, stream_len, p, size);
 }
 
 #if PRINTF_CAP_WCHAR

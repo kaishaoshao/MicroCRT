@@ -104,7 +104,6 @@ __printf_parse_size_modifier(struct __printf_spec *spec, unsigned c)
     return 1;
 }
 
-#if PRINTF_CAP_POSITIONAL
 static inline int
 __printf_parse_positional_char(struct __printf_spec *spec, unsigned c, const CHAR *fmt_orig,
                                my_va_list *my_ap, va_list ap_orig)
@@ -133,4 +132,3 @@ __printf_parse_positional_char(struct __printf_spec *spec, unsigned c, const CHA
 
     return 1;
 }
-#endif
