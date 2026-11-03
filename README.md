@@ -19,6 +19,10 @@
   * 将软实现和libc，libm库能够更好的配合起来
   * 更好的函数测试，争取更好的函数覆盖率
 
+## 构建系统
+
+MicroCRT 采用类似 LLVM 的分层指令集架构构建系统（Target -> Subtarget -> Vendor Custom Extensions），支持厂商自定义指令集与树外架构插拔。详细逻辑与使用指南请参阅 [CMake 构建系统设计文档](docx/cmake-architecture.md)。
+
 ## 实现
 
 * [ ] 简单介绍编译器和c库如何配合起来使用
